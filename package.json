@@ -1,0 +1,47 @@
+{
+  "name": "ZSSN",
+  "version": "0.1.0",
+  "description": "Zombie Survival Social Network",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "start-dev": "nodemon server.js",
+    "build-dev": "gulp build-dev",
+    "prepare-start": "npm install & npm run -s bower & npm run -s build-dev"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/leonardo-freitas-1995/ZSSN"
+  },
+  "author": "Leonardo Freitas dos Santos",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/leonardo-freitas-1995/ZSSN/issues"
+  },
+  "engines": {
+    "node": "5.9.1"
+  },
+  "homepage": "https://github.com/leonardo-freitas-1995/ZSSN",
+  "dependencies": {
+    "body-parser": "1.14.1",
+    "consign": "^0.1.2",
+    "express": "4.13.3",
+    "helmet": "0.12.0",
+    "method-override": "2.3.5",
+    "mongoose": "^4.6.3",
+    "morgan": "^1.7.0",
+    "pug": "^2.0.0-beta4"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-change": "^1.0.0",
+    "gulp-clean": "^0.3.2",
+    "gulp-clean-css": "^2.0.13",
+    "gulp-concat": "^2.6.0",
+    "gulp-html-replace": "^1.6.1",
+    "gulp-rename": "^1.2.2",
+    "gulp-stylus": "^2.5.0",
+    "gulp-uglify": "^2.0.0",
+    "run-sequence": "^1.2.2"
+  }
+}
