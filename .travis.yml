@@ -9,6 +9,7 @@ install:
 - npm install
 - npm test
 after_success:
+  - ls
   - npm run -s build-openshift
 before_deploy:
   - ls
