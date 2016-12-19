@@ -42,8 +42,9 @@ module.exports = function(app){
 
         var resource;
 
+
         for (resource in constants.resourcePoints){
-            if (!survivorOffered[resource] || !traderOffered[resource]){
+            if (survivorOffered[resource] == null || traderOffered[resource] == null){
                 res.status(400);
                 return res.send("wrongInventory");
             }
@@ -69,11 +70,17 @@ module.exports = function(app){
                 return res.send("personNotFound");
             }
 
+            if (survivor.infected){
+                res.status(403);
+                return res.send("infectedSurvivor");
+            }
+
             for (resource in constants.resourcePoints){
                 if (constants.resourcePoints.hasOwnProperty(resource)){
                     survivor.inventory[resource] += (traderOffered[resource] - survivorOffered[resource]);
                 }
             }
+
             survivor.save();
 
             Person.findOne({_id: traderId}).exec(function(err, trader){
@@ -85,6 +92,11 @@ module.exports = function(app){
                 if (!trader){
                     res.status(404);
                     return res.send("personNotFound");
+                }
+
+                if (trader.infected){
+                    res.status(403);
+                    return res.send("infectedTrader");
                 }
 
                 for (resource in constants.resourcePoints){
