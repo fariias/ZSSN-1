@@ -1,4 +1,4 @@
-global.DBTestData = {
+module.exports = {
     notInfectedPerson: {
         _id: "577c68c99c1c91dd96db5637",
         name: "Test Survivor",

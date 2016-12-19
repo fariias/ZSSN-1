@@ -8,7 +8,7 @@
     "start-dev": "set NODE_ENV=development&& nodemon server.js",
     "build-dev": "gulp build-dev",
     "prepare-start": "npm install & npm run -s bower & npm run -s build-dev",
-    "test": "set NODE_ENV=test&& mocha --recursive test/**/*.js"
+    "test": "set NODE_ENV=test&& mocha test/**/*.js"
   },
   "repository": {
     "type": "git",
