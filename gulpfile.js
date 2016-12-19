@@ -57,6 +57,7 @@ gulp.task('copy', ['clean'], () => {
             '!.git/',
             '!gulpfile.js',
             '!npm-debug.log',
+            '!bower.opts',
             '!.gitignore',
             '!.travis.yml',
             '!README.md',
@@ -72,12 +73,21 @@ gulp.task('copy', ['clean'], () => {
         .pipe(gulp.dest('dist'));
 });
 
-gulp.task('copy-openshift', () => {
+gulp.task('copy-openshift', ['copy-bower.opts'], () => {
     return gulp.src([
             // Includes
-            '.openshift/**/*'
+            'openshift_hooks/**/*'
         ], {dot: true})
         .pipe(gulp.dest('dist/.openshift'));
+});
+
+gulp.task('copy-bower.opts', () => {
+    return gulp.src([
+            // Includes
+            'bower.opts'
+        ], {dot: true})
+        .pipe(rename({suffix: '', basename: '', extname: '.bowerrc'}))
+        .pipe(gulp.dest('dist/'));
 });
 
 gulp.task('clean', () => {
