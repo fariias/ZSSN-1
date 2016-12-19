@@ -6,7 +6,7 @@ services:
 node_js:
 - '6'
 install:
-- ls
+- cat .bowerrc
 - npm install
 - npm test
 after_success:
@@ -16,6 +16,7 @@ before_deploy:
   - ls
   - chmod +x deploy
 deploy:
+  skip_cleanup: true
   provider: openshift
   user: leonardo_freitas1995@hotmail.com
   password:
@@ -24,4 +25,3 @@ deploy:
   domain: leoapps
   on:
     repo: leonardo-freitas-1995/ZSSN
-  skip_cleanup: true
