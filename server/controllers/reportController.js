@@ -7,21 +7,19 @@ module.exports = function(app){
     var controller = {};
 
     controller.getAllReports = function(req, res){
-        var resource;
-
-        Person.find({infected: false}).lean().exec(function(err, survivors){
+        Person.find({}).lean().exec(function(err, survivors){
             if (err){
                 res.status(503);
                 return res.send("databaseConnection");
             }
 
-            var survivorsCount = survivors.length;
+            var personCount = survivors.length;
             var totalInfected = 0;
             var totalNonInfected = 0;
             var resourcesPointsLost = 0;
 
             var resourceCount = {};
-            for (resource in constants.resourcePoints){
+            for (let resource in constants.resourcePoints){
                 if (constants.resourcePoints.hasOwnProperty(resource)){
                     resourceCount[resource] = 0;
                 }
@@ -35,11 +33,12 @@ module.exports = function(app){
                     totalNonInfected++;
                 }
 
-                for (resource in resourceCount){
+                for (let resource in resourceCount){
                     if (resourceCount.hasOwnProperty(resource) && survivor.inventory[resource]){
-                        resourceCount[resource] += survivor.inventory[resource];
-
-                        if (survivor.infected && survivor.inventory[resource]){
+                        if (!survivor.infected){
+                            resourceCount[resource] += survivor.inventory[resource];
+                        }
+                        else if (survivor.inventory[resource]){
                             resourcesPointsLost += survivor.inventory[resource] *
                                 constants.resourcePoints[resource];
                         }
@@ -49,29 +48,10 @@ module.exports = function(app){
                 }
             });
 
-            var infected = (totalInfected * 100) / survivorsCount;
-            var nonInfected = (totalNonInfected * 100) / survivorsCount;
+            var infected = totalInfected / personCount;
+            var nonInfected = totalNonInfected / personCount;
 
-            res.send({survivorsCount, resourceCount, resourcesPointsLost, infected, nonInfected})
-        });
-
-        Person.count({}, function countingAllPeople(err, totalPeople){
-            if (err){
-                res.status(503);
-                return res.send("databaseConnection");
-            }
-
-            Person.count({infected: true}, function countingInfectedPeople(err, infectedPeople){
-                if (err){
-                    res.status(503);
-                    return res.send("databaseConnection");
-                }
-
-                var infected = (infectedPeople * 100) / totalPeople;
-                var nonInfected = ((totalPeople - infectedPeople) * 100) / totalPeople;
-
-                res.send({infected, nonInfected})
-            })
+            res.send({personCount, resourceCount, resourcesPointsLost, infected, nonInfected})
         });
     };
 
@@ -88,7 +68,7 @@ module.exports = function(app){
                     return res.send("databaseConnection");
                 }
 
-                var percentage = (infectedPeople * 100) / totalPeople;
+                var percentage = infectedPeople / totalPeople;
 
                 res.send({infected: percentage})
             })
@@ -108,7 +88,7 @@ module.exports = function(app){
                     return res.send("databaseConnection");
                 }
 
-                var percentage = (nonInfectedPeople * 100) / totalPeople;
+                var percentage = nonInfectedPeople / totalPeople;
 
                 res.send({nonInfected: percentage})
             })
@@ -116,8 +96,6 @@ module.exports = function(app){
     };
 
     controller.getResourcesReport = function(req, res){
-        var resource;
-
         Person.find({infected: false}).lean().exec(function(err, survivors){
             if (err){
                 res.status(503);
@@ -125,27 +103,25 @@ module.exports = function(app){
             }
 
             var resourceCount = {};
-            for (resource in constants.resourcePoints){
+            for (let resource in constants.resourcePoints){
                 if (constants.resourcePoints.hasOwnProperty(resource)){
                     resourceCount[resource] = 0;
                 }
             }
 
             survivors.forEach(function(survivor){
-                for (resource in resourceCount){
+                for (let resource in resourceCount){
                     if (resourceCount.hasOwnProperty(resource) && survivor.inventory[resource]){
                         resourceCount[resource] += survivor.inventory[resource];
                     }
                 }
             });
 
-            res.send({survivorsCount: survivors.length, resourceCount})
+            res.send({resourceCount})
         });
     };
 
     controller.getLostResourcesReport = function(req, res){
-        var resource;
-
         Person.find({infected: true}).lean().exec(function(err, infected){
             if (err){
                 res.status(503);
@@ -155,7 +131,7 @@ module.exports = function(app){
             var resourcesPointsLost = 0;
 
             infected.forEach(function(infectedPerson){
-                for (resource in constants.resourcePoints){
+                for (let resource in constants.resourcePoints){
                     if (constants.resourcePoints.hasOwnProperty(resource) && infectedPerson.inventory[resource]){
                         resourcesPointsLost += infectedPerson.inventory[resource] *
                                                 constants.resourcePoints[resource];

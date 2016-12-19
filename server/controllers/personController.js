@@ -40,10 +40,7 @@ module.exports = function(app){
         var totalSurvivorPoints = 0;
         var totalTraderPoints = 0;
 
-        var resource;
-
-
-        for (resource in constants.resourcePoints){
+        for (let resource in constants.resourcePoints){
             if (survivorOffered[resource] == null || traderOffered[resource] == null){
                 res.status(400);
                 return res.send("wrongInventory");
@@ -75,7 +72,7 @@ module.exports = function(app){
                 return res.send("infectedSurvivor");
             }
 
-            for (resource in constants.resourcePoints){
+            for (let resource in constants.resourcePoints){
                 if (constants.resourcePoints.hasOwnProperty(resource)){
                     survivor.inventory[resource] += (traderOffered[resource] - survivorOffered[resource]);
                 }
@@ -99,7 +96,7 @@ module.exports = function(app){
                     return res.send("infectedTrader");
                 }
 
-                for (resource in constants.resourcePoints){
+                for (let resource in constants.resourcePoints){
                     if (constants.resourcePoints.hasOwnProperty(resource)){
                         trader.inventory[resource] += (survivorOffered[resource] - traderOffered[resource]);
                     }

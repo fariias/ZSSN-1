@@ -3,3 +3,4 @@ node_modules/
 dist/
 public/vendor/
 *.min.css
+npm-debug.log
