@@ -11,10 +11,13 @@ install:
 - npm test
 after_success:
   - npm run -s build-openshift
-before_deploy:
   - cd dist
-  - ls -a
   - bower install
+  - git init
+  - git config --global user.email "travis@localhost.localdomain"
+  - git config --global user.name "Travis CI"
+  - git add --all
+  - git commit -am "Travis change"
 deploy:
   skip_cleanup: true
   provider: openshift
