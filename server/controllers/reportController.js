@@ -9,17 +9,19 @@ module.exports = function(app){
     controller.getInfectedReport = function(req, res){
         Person.count({}, function countingAllPeople(err, totalPeople){
             if (err){
-                return res.send({success: false, error: "common.databaseConnection"});
+                res.status(503);
+                return res.send("databaseConnection");
             }
 
             Person.count({infected: true}, function countingInfectedPeople(err, infectedPeople){
                 if (err){
-                    return res.send({success: false, error: "common.databaseConnection"});
+                    res.status(503);
+                    return res.send("databaseConnection");
                 }
 
                 var percentage = (infectedPeople * 100) / totalPeople;
 
-                res.send({success: true, infected: percentage})
+                res.send({infected: percentage})
             })
         });
     };
@@ -27,17 +29,19 @@ module.exports = function(app){
     controller.getNonInfectedReport = function(req, res){
         Person.count({}, function countingAllPeople(err, totalPeople){
             if (err){
-                return res.send({success: false, error: "common.databaseConnection"});
+                res.status(503);
+                return res.send("databaseConnection");
             }
 
             Person.count({infected: false}, function countingNonInfectedPeople(err, nonInfectedPeople){
                 if (err){
-                    return res.send({success: false, error: "common.databaseConnection"});
+                    res.status(503);
+                    return res.send("databaseConnection");
                 }
 
                 var percentage = (nonInfectedPeople * 100) / totalPeople;
 
-                res.send({success: true, nonInfected: percentage})
+                res.send({nonInfected: percentage})
             })
         });
     };
@@ -47,7 +51,8 @@ module.exports = function(app){
 
         Person.find({infected: false}).exec(function(err, survivors){
             if (err){
-                return res.send({success: false, error: "common.databaseConnection"});
+                res.status(503);
+                return res.send("databaseConnection");
             }
 
             var resourceCount = {};
@@ -65,7 +70,7 @@ module.exports = function(app){
                 }
             });
 
-            res.send({success: true, survivorsCount: survivors.length, resourceCount})
+            res.send({survivorsCount: survivors.length, resourceCount})
         });
     };
 
@@ -74,7 +79,8 @@ module.exports = function(app){
 
         Person.find({infected: true}).exec(function(err, infected){
             if (err){
-                return res.send({success: false, error: "common.databaseConnection"});
+                res.status(503);
+                return res.send("databaseConnection");
             }
 
             var resourcesPointsLost = 0;
@@ -88,7 +94,7 @@ module.exports = function(app){
                 }
             });
 
-            res.send({success: true, resourcesPointsLost})
+            res.send({resourcesPointsLost})
         });
     };
 
