@@ -46,11 +46,11 @@ describe('/api/person/:person_id', () => {
 
         it('it should update a survivor (but not the inventory)', (done) => {
             agent.put('/api/person/' + DBTestData.notInfectedPerson._id)
-                .send(DBTestData.updatedData)
+                .send(DBTestData.updatedPersonData)
                 .expect(200)
                 .end((err, res) => {
                     Person.findOne({_id: DBTestData.notInfectedPerson._id}).lean().exec((mongoErr, person) => {
-                        expect(person.name).to.eql(DBTestData.updatedData.name);
+                        expect(person.name).to.eql(DBTestData.updatedPersonData.name);
                         expect(person.inventory).to.eql(DBTestData.notInfectedPerson.inventory);
                         done(err);
                     });
@@ -62,7 +62,7 @@ describe('/api/person/:person_id', () => {
 
         it('it should return 404', (done) => {
             agent.put('/api/person/' + DBTestData.notInfectedPerson._id)
-                .send(DBTestData.updatedData)
+                .send(DBTestData.updatedPersonData)
                 .expect(404)
                 .end((err, res) => {
                     done(err);

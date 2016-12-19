@@ -159,11 +159,12 @@ module.exports = function(app){
         survivorData.infectionReports = [];
 
         Person.create(survivorData, function(err, survivor){
+                if (err){
+                    res.status(503);
+                    return res.send("databaseConnection");
+                }
+            
                 res.send({newSurvivorId: survivor._id});
-            },
-            function(){
-                res.status(503);
-                return res.send("databaseConnection");
             });
     };
 

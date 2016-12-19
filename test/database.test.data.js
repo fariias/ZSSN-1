@@ -75,10 +75,25 @@ global.DBTestData = {
             }
         ]
     },
-    updatedData: {
+    updatedPersonData: {
         name: "Test Updated Survivor",
         gender: "male",
         age: "22",
+        lastLocation: {
+            latitude: "-16.686882",
+            longitude: "-49.264789"
+        },
+        inventory: {
+            water: 120,
+            food: 180,
+            medication: 220,
+            ammunition: 280
+        }
+    },
+    insertPersonData: {
+        name: "Test Survivor",
+        gender: "male",
+        age: "21",
         lastLocation: {
             latitude: "-16.686882",
             longitude: "-49.264789"
