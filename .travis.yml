@@ -6,6 +6,7 @@ services:
 node_js:
 - '6'
 install:
+- npm install bower -g
 - npm install
 - npm test
 after_success:
@@ -13,7 +14,7 @@ after_success:
 before_deploy:
   - cd dist
   - ls -a
-  - chmod +x .openshift/action_hooks/deploy
+  - bower install
 deploy:
   skip_cleanup: true
   provider: openshift
