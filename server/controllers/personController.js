@@ -115,6 +115,10 @@ module.exports = function(app){
     controller.updateSurvivor = function(req, res){
         var id = req.params.person_id;
         var updatedSurvivorData = req.body;
+        
+        delete updatedSurvivorData.inventory;
+        delete updatedSurvivorData.infected;
+        delete updatedSurvivorData.infectionReports;
 
         Person.update({_id: id}, {$set: updatedSurvivorData}).exec(function(err, result){
             if (err){
