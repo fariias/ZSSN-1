@@ -11,6 +11,13 @@ module.exports = {
         port: 3030,
         log: "dev"
     },
+    test: {
+        ip: "127.0.0.1",
+        rootPath: rootPath,
+        db: 'mongodb://127.0.0.1/zssn-test-db',
+        port: 3030,
+        log: "disabled"
+    },
     production: {
         ip: "127.0.0.1",
         rootPath: rootPath,

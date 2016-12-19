@@ -7,6 +7,8 @@ module.exports = function (app, config) {
     const db = mongoose.connection;
     db.on('error', console.error.bind(console, 'connection error...'));
     db.once('open', () => {
-        console.log('ZSSN MongoDB connection opened');
+        if (config.log !== "disabled"){
+            console.log('ZSSN MongoDB connection opened');
+        }
     });
 };

@@ -4,10 +4,11 @@
   "description": "Zombie Survival Social Network",
   "main": "server.js",
   "scripts": {
-    "start": "node server.js",
-    "start-dev": "nodemon server.js",
+    "start": "set NODE_ENV=production&& node server.js",
+    "start-dev": "set NODE_ENV=development&& nodemon server.js",
     "build-dev": "gulp build-dev",
-    "prepare-start": "npm install & npm run -s bower & npm run -s build-dev"
+    "prepare-start": "npm install & npm run -s bower & npm run -s build-dev",
+    "test": "set NODE_ENV=test&& mocha test/**/*.js"
   },
   "repository": {
     "type": "git",
@@ -32,7 +33,9 @@
     "morgan": "^1.7.0",
     "pug": "^2.0.0-beta4"
   },
+
   "devDependencies": {
+    "chai": "^3.5.0",
     "gulp": "^3.9.1",
     "gulp-change": "^1.0.0",
     "gulp-clean": "^0.3.2",
@@ -42,6 +45,8 @@
     "gulp-rename": "^1.2.2",
     "gulp-stylus": "^2.5.0",
     "gulp-uglify": "^2.0.0",
-    "run-sequence": "^1.2.2"
+    "mocha": "^3.2.0",
+    "run-sequence": "^1.2.2",
+    "supertest": "^2.0.1"
   }
 }

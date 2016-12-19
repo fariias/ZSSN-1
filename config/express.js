@@ -19,7 +19,9 @@ module.exports = function(config){
 	app.set('views', './server/views');
 
     // Server logger
-	app.use(logger(config.log));
+	if (config.log !== "disabled"){
+        app.use(logger(config.log));
+    }
 
     // Setting up bodyparser handler
 	app.use(bodyParser.urlencoded({extended:true}));

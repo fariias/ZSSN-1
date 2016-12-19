@@ -142,7 +142,7 @@ module.exports = function(app){
         survivorData.infected = false;
         survivorData.infectionReports = [];
 
-        Person.create(survivorData).then(function(survivor){
+        Person.create(survivorData, function(err, survivor){
                 res.send({newSurvivorId: survivor._id});
             },
             function(){
