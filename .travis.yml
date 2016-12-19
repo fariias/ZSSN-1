@@ -12,6 +12,7 @@ after_success:
   - npm run -s build-openshift
 before_deploy:
   - cd dist
+  - ls
   - chmod +x deploy
 deploy:
   provider: openshift
