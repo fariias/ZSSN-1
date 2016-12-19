@@ -49,8 +49,16 @@ gulp.task('copy', ['clean'], () => {
             '!node_modules/',
             '!test/**/*',
             '!test/',
+            '!.openshift/**/*',
+            '!.openshift/',
+            '!.idea/**/*',
+            '!.idea/',
+            '!.git/**/*',
+            '!.git/',
             '!gulpfile.js',
             '!npm-debug.log',
+            '!.gitignore',
+            '!.travis.yml',
             '!README.md',
             '!LICENSE',
             '!server.js',
@@ -60,7 +68,7 @@ gulp.task('copy', ['clean'], () => {
             '!public/vendor/',
             '!public/js/app/**/*',
             '!server/views/scripts.pug'
-        ])
+        ], {dot: true})
         .pipe(gulp.dest('dist'));
 });
 
@@ -68,7 +76,7 @@ gulp.task('copy-openshift', () => {
     return gulp.src([
             // Includes
             '.openshift/**/*'
-        ])
+        ], {dot: true})
         .pipe(gulp.dest('dist/.openshift'));
 });
 
