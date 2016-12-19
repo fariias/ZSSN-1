@@ -1,10 +1,24 @@
 language: node_js
 env:
-  - NODE_ENV=test
+- NODE_ENV=test
 services:
-  - mongodb
+- mongodb
 node_js:
-  - "6"
+- '6'
 install:
-  - npm install
-  - npm test
+- npm install
+- npm test
+after_success:
+  - npm run -s build-openshift
+before_deploy:
+  - cd dist
+deploy:
+  provider: openshift
+  user: leonardo_freitas1995@hotmail.com
+  password:
+    secure: mJ9A5F1klRTCr36B2yEYfS087LtXXLCs5l72h0Mr8IX8DgmYbPWHvNiOQMDR3kuVdztraaS22rDXHYCb/jeb29bMM3wL/qHEqtJHMSbMbzfpgZCevr8QMSsAFsLuSF/ji3Qx1LaZVMppy0idw1/oxR5BoWESquqY3Qv/YhMM829bxrmO/9VxuFUhO9dk6+Dyqcv7axD6HQpzOIFEaF/G68BksrlKJ/+8G6p02JnZFdIsfdG+cX8h8l4YaZUPi49Nu5YAa16cRmIP63LViQQjVDLSeOLaIZwUBI6nmbTpd1ix4tnVY5x4Cix9r8m1MfS9PPSvvn8xqmJ/qiz17XGHfiPlCI4IaIMXf98uAuekmFQA+ArHQwmSlEBG4o6uCg7aCbAIhjqwqaufI+PX7z4/+e+r7LjaKRp2BSNTXk9SCw10fKKAq4MKOstdkyvHFIPD2rT9ZQSEQVRzsiQGzr4jpWpDfEtxa93KKFJK0gaDp9vH/arORzByP39OGVE2Rki9YdD5LEobauQa1PFsiD/9iGki0AdQDeKaStlzQ0aM6jay816dLi/0P4M75I14U1qI8hMPUzBitSVh257J+vlVlIf8D6X53hpu2ilaKARevy6xbAy95VIl9Qfkrl1SPxb0s4Fk/UO49WyBfYYhj6djllTN1ic7xQKuC99PWQOWMEk=
+  app: zssn
+  domain: leoapps
+  on:
+    repo: leonardo-freitas-1995/ZSSN
+  skip_cleanup: true
