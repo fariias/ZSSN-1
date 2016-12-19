@@ -133,7 +133,7 @@ module.exports = function(app){
                 return res.send("personNotFound");
             }
 
-            res.send(survivor);
+            res.send({survivor});
         });
     };
 
@@ -143,7 +143,7 @@ module.exports = function(app){
         survivorData.infectionReports = [];
 
         Person.create(survivorData).then(function(survivor){
-                res.send(survivor._id);
+                res.send({newSurvivorId: survivor._id});
             },
             function(){
                 res.status(503);
@@ -158,7 +158,7 @@ module.exports = function(app){
                 return res.send("databaseConnection");
             }
 
-            res.send(survivors);
+            res.send({survivors});
         });
     };
 

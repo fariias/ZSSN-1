@@ -2,6 +2,9 @@ module.exports = function (app) {
     
     var reportController = app.controllers.reportController;
 
+    app.route('/api/report')
+        .get(reportController.getAllReports);
+
     app.route('/api/report/infected')
         .get(reportController.getInfectedReport);
 
