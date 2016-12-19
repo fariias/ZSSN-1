@@ -48,8 +48,8 @@ module.exports = function(app){
                 }
             });
 
-            var infected = totalInfected / personCount;
-            var nonInfected = totalNonInfected / personCount;
+            var infected = (totalInfected / personCount) || 0;
+            var nonInfected = (totalNonInfected / personCount) || 0;
 
             res.send({personCount, resourceCount, resourcesPointsLost, infected, nonInfected})
         });
@@ -68,7 +68,7 @@ module.exports = function(app){
                     return res.send("databaseConnection");
                 }
 
-                var percentage = infectedPeople / totalPeople;
+                var percentage = (infectedPeople / totalPeople) || 0;
 
                 res.send({infected: percentage})
             })
@@ -88,7 +88,7 @@ module.exports = function(app){
                     return res.send("databaseConnection");
                 }
 
-                var percentage = nonInfectedPeople / totalPeople;
+                var percentage = (nonInfectedPeople / totalPeople) || 0;
 
                 res.send({nonInfected: percentage})
             })
