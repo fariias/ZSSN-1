@@ -21,6 +21,10 @@ gulp.task('build-production', () => {
     runSequence('copy', 'server-production', 'transpile');
 });
 
+gulp.task('build-openshift', () => {
+    runSequence('copy', 'copy-openshift', 'server-production', 'transpile');
+});
+
 gulp.task('server-default', () => {
     return gulp.src('./server.js')
         .pipe(gulp.dest('dist'));
@@ -43,7 +47,12 @@ gulp.task('copy', ['clean'], () => {
             // Excludes (manually compiled/treated)
             '!node_modules/**/*',
             '!node_modules/',
+            '!test/**/*',
+            '!test/',
             '!gulpfile.js',
+            '!npm-debug.log',
+            '!README.md',
+            '!LICENSE',
             '!server.js',
             '!public/css/**/*',
             '!public/css/',
@@ -53,6 +62,14 @@ gulp.task('copy', ['clean'], () => {
             '!server/views/scripts.pug'
         ])
         .pipe(gulp.dest('dist'));
+});
+
+gulp.task('copy-openshift', () => {
+    return gulp.src([
+            // Includes
+            '.openshift/**/*'
+        ])
+        .pipe(gulp.dest('dist/.openshift'));
 });
 
 gulp.task('clean', () => {

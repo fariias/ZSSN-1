@@ -4,10 +4,14 @@
   "description": "Zombie Survival Social Network",
   "main": "server.js",
   "scripts": {
-    "start": "set NODE_ENV=production&& node server.js",
+    "start": "node server.js",
+    "remote-bower": "HOME=$OPENSHIFT_DATA_DIR bower install",
+    "prepare-deploy": "npm run -s remote-bower",
+
     "start-dev": "set NODE_ENV=development&& nodemon server.js",
     "build-dev": "gulp build-dev",
     "prepare-start": "npm install & npm run -s bower & npm run -s build-dev",
+
     "test": "set NODE_ENV=test&& mocha test/**/*.js"
   },
   "repository": {
