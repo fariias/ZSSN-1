@@ -6,13 +6,12 @@ services:
 node_js:
 - '6'
 install:
+- ls
 - npm install
 - npm test
 after_success:
-  - ls
   - npm run -s build-openshift
 before_deploy:
-  - ls
   - cd dist
   - ls
   - chmod +x deploy
