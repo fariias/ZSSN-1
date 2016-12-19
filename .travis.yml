@@ -13,7 +13,7 @@ after_success:
   - npm run -s build-openshift
 before_deploy:
   - cd dist
-  - ls
+  - ls -a
   - chmod +x deploy
 deploy:
   skip_cleanup: true
