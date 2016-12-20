@@ -2,7 +2,7 @@
 
 Zombie Survival Social Network implemented as a test for [Code Miner](http://www.codeminer42.com) using a MEAN Stack.
 
-This is a complete solution for the two-part test. The complete specification to the test can be found [here (Backend)](https://gist.github.com/akitaonrails/711b5553533d1a14364907bbcdbee677) and [here (Frontend)](https://gist.github.com/akitaonrails/694fc9e85735c400d7e0dc8e79576288)
+This is a complete solution to the two-part test. The complete specification to the test can be found [here (Backend)](https://gist.github.com/akitaonrails/711b5553533d1a14364907bbcdbee677) and [here (Frontend)](https://gist.github.com/akitaonrails/694fc9e85735c400d7e0dc8e79576288)
 
 Other frameworks/plugins used:
 - Integration
