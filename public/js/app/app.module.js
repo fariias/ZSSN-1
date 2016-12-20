@@ -1,7 +1,12 @@
 (function() {
     angular.module('zssn', [
         // Third-Party
-        'ngRoute'
+        'ngRoute',
+        'ngResource',
+        'ngMaterial',
+        'ngMessages',
+        'ngStorage',
+        'pascalprecht.translate'
     ]);
 
     angular
@@ -19,8 +24,9 @@
         });
     }
 
-    AppRun.$inject = [];
-    function AppRun() {
+    AppRun.$inject = ['$rootScope', 'layout'];
+    function AppRun($rootScope, layout) {
+        $rootScope.layout = layout;
     }
     
 })();

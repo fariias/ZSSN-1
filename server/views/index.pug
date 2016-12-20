@@ -1,4 +1,10 @@
 extends layout
 
 block main-content
-    div(ng-view)
+    md-toolbar(md-scroll-shrink, layout="row", layout-align="start center")
+        .md-toolbar-tools
+            h3
+                span(layout-padding, translate="main.zssn")
+            span(flex)
+    md-content(flex, layout="row", layout-padding)
+        div(ng-view)
