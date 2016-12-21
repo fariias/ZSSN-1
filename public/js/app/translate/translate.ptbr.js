@@ -3,8 +3,7 @@
         .module('zssn')
         .constant('translatePTBR', {
             main: {
-                zssn: "ZSSN",
-                zssnExt: "Zombie Survival Social Network",
+                zssn: "Zombie Survival Social Network",
                 welcome: "Bem vindo ao Zombie Survival Social Network",
                 lookingFor: "O que você está procurando?",
                 newSurvivor: "Sou novo aqui",
