@@ -1,1 +1,11 @@
-h1 Hello Openshift!
+div(flex="100", layout="row", layout-align="center center")
+    div(layout="column", layout-align="center center")
+        h2(translate="main.welcome")
+        span(translate="main.lookingFor")
+br
+md-divider
+div(layout="column", layout-gt-sm="row", layout-align="center stretch", layout-wrap)
+    md-button.home-link(ng-repeat="link in vm.homeLinks", ng-href="{{link.href}}",
+    flex="100", flex-gt-sm="25", layout="column", layout-align="center center", layout-padding)
+        md-icon.material-fonts.md-100 {{link.icon}}
+        span(translate="{{link.title}}")
