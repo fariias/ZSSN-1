@@ -1,5 +1,6 @@
 div(layout="column", layout-align="center center")
     h3(translate="newSurvivor.title")
+
 div(layout="column", layout-gt-sm="row", layout-align-gt-sm="center")
     .md-whiteframe-z1(ng-if="vm.createdUser", flex-gt-sm="70", md-theme="success")
         md-content(layout="column", layout-padding, layout-align="center center")
@@ -49,6 +50,7 @@ div(layout="column", layout-gt-sm="row", layout-align-gt-sm="center")
 
                                 md-list-item.md-2-line(ng-show="vm.isInventoryEmpty()")
                                     .md-list-item-text(translate="newSurvivor.emptyInventory")
+
                         label(translate="newSurvivor.oneTimeInventory")
 
                     .md-padding(layout="column", flex="50")
@@ -77,6 +79,8 @@ div(layout="column", layout-gt-sm="row", layout-align-gt-sm="center")
                 ng-map(center="current-location" zoom="12" on-click="vm.setLocation()", geo-fallback-center="-16.6862, -49.2648")
                     marker(ng-if="vm.startedGeolocation",
                         position="{{vm.newSurvivor.lastLocation.latitude}}, {{vm.newSurvivor.lastLocation.longitude}}")
+
                 br
+
             .md-padding(layout="column", layout-align="center center")
                 md-button.md-raised.md-primary(translate="common.create", ng-click="vm.createSurvivor()")
