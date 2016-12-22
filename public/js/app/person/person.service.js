@@ -76,7 +76,7 @@
             var dfd = $q.defer();
 
             person.$search({search: name}).then(function (response) {
-                dfd.resolve(response.survivor);
+                dfd.resolve(response.survivors);
 
             }, function (error) {
                 dfd.reject(error);

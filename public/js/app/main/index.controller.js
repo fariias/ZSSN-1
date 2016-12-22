@@ -20,7 +20,7 @@
             {
                 icon: "contacts",
                 title: "main.findSomeone",
-                href: "/find_survivor"
+                href: "/search_survivor"
             },
             {
                 icon: "explore",

@@ -1,0 +1,40 @@
+div(layout="column", layout-align="center center")
+    h3(translate="searchSurvivor.title")
+
+div(layout="column", layout-gt-sm="row", layout-align-gt-sm="center")
+    .md-whiteframe-z1(layout="column", flex-gt-sm="70")
+        md-content
+            .md-padding(layout="column", layout-gt-sm="row")
+                md-input-container(flex)
+                    label(translate="searchSurvivor.name")
+                    md-icon search
+                    input(type="text", ng-model="vm.searchName", ng-change="vm.makeSearch()")
+
+            div(ng-if="vm.notFound", layout="column", layout-align="center center")
+                b.md-warn(translate="searchSurvivor.notFound")
+
+            md-card(ng-if="vm.survivors")
+                md-card-content
+                    md-list.dense
+                        md-list-item.md-2-line(ng-repeat-start="survivor in vm.survivors")
+                            .md-list-item-text(ng-class="{'infected': survivor.infected}") {{survivor.name}}
+
+                            md-button.md-icon-button.md-secondary
+                                md-tooltip(md-direction="top", ng-hide="survivor.infected")
+                                    span(translate="searchSurvivor.tooltips.view")
+                                md-tooltip(md-direction="top", ng-show="survivor.infected")
+                                    span(translate="searchSurvivor.tooltips.viewInfected")
+                                md-icon.mdi.mdi-account-card-details.mdi-24px(ng-class="{'infected': survivor.infected}")
+
+                            md-button.md-icon-button.md-secondary(ng-disabled="survivor.infected")
+                                md-tooltip(md-direction="top", ng-hide="survivor.infected")
+                                    span(translate="searchSurvivor.tooltips.trade")
+                                md-icon.mdi.mdi-account-switch.mdi-24px
+
+                            md-button.md-icon-button.md-secondary(ng-click="vm.flagAsInfected($event, survivor)",
+                                ng-disabled="survivor.infected")
+                                md-tooltip(md-direction="top", ng-hide="survivor.infected")
+                                    span(translate="searchSurvivor.tooltips.flagAsInfected")
+                                md-icon.mdi.mdi-biohazard.mdi-24px
+
+                        md-divider(ng-repeat-end, ng-show="!$last")

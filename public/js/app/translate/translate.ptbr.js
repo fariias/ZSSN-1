@@ -21,6 +21,8 @@
                 back: "Voltar",
                 search: "Buscar",
                 update: "Atualizar",
+                yes: "Sim",
+                no: "Não",
                 resetModifications: "Voltar modificações",
                 errors: {
                     required: "É preciso preencher este campo",
@@ -57,6 +59,23 @@
                 id: "Chave de identificação",
                 success: "Dados atualizados com sucesso!",
                 infected: "Este usuário foi marcado como infectado. Não é possível realizar alterações."
+            },
+            searchSurvivor: {
+                title: "Buscar por sobrevivente",
+                name: "Nome do sobrevivente",
+                notFound: "Nenhum sobrevivente foi encontrado com este nome",
+                tooltips: {
+                    view: "Ver sobrevivente",
+                    viewInfected: "Ver sobrevivente (infectado)",
+                    trade: "Trocar com sobrevivente",
+                    flagAsInfected: "Reportar como infectado"
+                },
+                flagAsInfectedDialog: {
+                    title: "Deseja mesmo reportar {{name}} como infectado?",
+                    message: "Você tem certeza desta ação? Isto irá gerar consequências para a conta do sobrevivente.",
+                    yourName: "Seu nome",
+                    success: "Seu relatório de infecção foi registrado. Se mais pessoas reportaram isto, logo ela será marcada como infectada pelo sistema."
+                }
             }
         });
 })();
