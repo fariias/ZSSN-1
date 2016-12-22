@@ -143,5 +143,27 @@ module.exports = function(app){
         });
     };
 
+    controller.getResourcesPointsReport = function(req, res){
+        Person.find({infected: false}).lean().exec(function(err, survivors){
+            if (err){
+                res.status(503);
+                return res.send("databaseConnection");
+            }
+
+            var resourcePoints = 0;
+
+            survivors.forEach(function(infectedPerson){
+                for (let resource in constants.resourcePoints){
+                    if (constants.resourcePoints.hasOwnProperty(resource) && infectedPerson.inventory[resource]){
+                        resourcePoints += infectedPerson.inventory[resource] *
+                                                constants.resourcePoints[resource];
+                    }
+                }
+            });
+
+            res.send({resourcePoints})
+        });
+    };
+
     return controller;
 };

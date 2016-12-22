@@ -17,4 +17,7 @@ module.exports = function (app) {
     app.route('/api/report/lost_resources')
         .get(reportController.getLostResourcesReport);
 
+    app.route('/api/report/resources_points')
+        .get(reportController.getResourcesPointsReport);
+
 };
