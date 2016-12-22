@@ -1,0 +1,82 @@
+div(layout="column", layout-align="center center")
+    h3(translate="newSurvivor.title")
+div(layout="column", layout-gt-sm="row", layout-align-gt-sm="center")
+    .md-whiteframe-z1(ng-if="vm.createdUser", flex-gt-sm="70", md-theme="success")
+        md-content(layout="column", layout-padding, layout-align="center center")
+            label(translate="newSurvivor.created", translate-values="{{vm.values}}")
+            div(layout="column", layout-align="center center")
+                md-button.md-raised(translate="common.back", ng-click="vm.goBack()")
+
+    .md-whiteframe-z1(layout="column", flex-gt-sm="70", ng-if="!vm.createdUser")
+        md-content
+            form(name="vm.newSurvivorForm")
+                .md-padding(layout="column", layout-gt-sm="row")
+                    md-input-container(flex="60")
+                        label(translate="newSurvivor.name")
+                        input(type="text", name="name", ng-model="vm.newSurvivor.name", required, md-no-asterisk)
+                        div(ng-messages="vm.newSurvivorForm.name.$error")
+                            div(ng-message="required", translate="common.errors.required")
+
+                    md-input-container(flex="20")
+                        label(translate="newSurvivor.age")
+                        input(type="number", name="age", min="1", ng-model="vm.newSurvivor.age", required, md-no-asterisk)
+                        div(ng-messages="vm.newSurvivorForm.age.$error")
+                            div(ng-message="required", translate="common.errors.required")
+                            div(ng-message="number", translate="common.errors.age")
+                            div(ng-message="min", translate="common.errors.age")
+
+                    md-input-container(flex="20")
+                        label(translate="newSurvivor.gender")
+                        md-select(name="gender", ng-model="vm.newSurvivor.gender", required, md-no-asterisk)
+                            md-option(ng-repeat="gender in vm.genders", value="{{gender.index}}")
+                                | {{gender.name | translate}}
+                        div(ng-messages="vm.newSurvivorForm.gender.$error")
+                            div(ng-message="required", translate="common.errors.required")
+
+            form(name="vm.newResourceForm")
+                .md-padding(layout="column", layout-gt-sm="row")
+                    md-content(flex="50", layout-padding)
+                        md-content.md-whiteframe-z1(md-theme="highlight")
+                            md-list.dense
+                                label(translate="newSurvivor.inventory")
+                                md-divider
+                                md-list-item.md-2-line(ng-repeat="(resource, value) in vm.newSurvivor.inventory",
+                                    ng-show="vm.resources[resource]")
+                                    .md-list-item-text(translate="common.resources.{{resource}}")
+                                    md-badge.md-secondary {{value}}
+                                    md-button.md-icon-button.md-secondary.md-warn(ng-click="vm.removeResource(resource)")
+                                        md-icon close
+
+                                md-list-item.md-2-line(ng-show="vm.isInventoryEmpty()")
+                                    .md-list-item-text(translate="newSurvivor.emptyInventory")
+                        label(translate="newSurvivor.oneTimeInventory")
+
+                    .md-padding(layout="column", flex="50")
+                        label(translate="newSurvivor.addResource")
+                        md-divider
+                        div(layout="column", layout-gt-sm="row")
+                            md-input-container(flex="50")
+                                label(translate="newSurvivor.resource")
+                                md-select(name="resource", ng-model="vm.newResource")
+                                    md-option(ng-repeat="(resource, hasResource) in vm.newSurvivor.inventory",
+                                        value="{{resource}}", ng-if="!hasResource")
+                                        | {{'common.resources.' + resource | translate}}
+
+                            md-input-container(flex="50")
+                                label(translate="newSurvivor.count")
+                                input(type="number", name="count", min="0", ng-model="vm.resourceCount")
+                                div(ng-messages="vm.newResourceForm.count.$error")
+                                    div(ng-message="number", translate="common.errors.count")
+                                    div(ng-message="min", translate="common.errors.count")
+                        md-button(translate="common.add", ng-click="vm.addResource(vm.newResource, vm.resourceCount)")
+
+            .md-padding
+                label(translate="newSurvivor.pickOnMap")
+                md-divider
+                br
+                ng-map(center="current-location" zoom="12" on-click="vm.setLocation()", geo-fallback-center="-16.6862, -49.2648")
+                    marker(ng-if="vm.startedGeolocation",
+                        position="{{vm.newSurvivor.lastLocation.latitude}}, {{vm.newSurvivor.lastLocation.longitude}}")
+                br
+            .md-padding(layout="column", layout-align="center center")
+                md-button.md-raised.md-primary(translate="common.create", ng-click="vm.createSurvivor()")

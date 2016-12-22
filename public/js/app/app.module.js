@@ -6,7 +6,8 @@
         'ngMaterial',
         'ngMessages',
         'ngStorage',
-        'pascalprecht.translate'
+        'pascalprecht.translate',
+        'ngMap'
     ]);
 
     angular
