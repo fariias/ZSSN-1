@@ -5,7 +5,8 @@ block main-content
         md-toolbar(layout="row", layout-align="start center")
             .md-toolbar-tools
                 h3
-                    a(href="/index", layout-padding, translate="main.zssn")
+                    a.hide-xs.hide-sm(href="/index", layout-padding, translate="main.zssn")
+                    a.hide-gt-sm(href="/index", layout-padding) ZSSN
                 span(flex)
                 md-menu(md-position-mode="target-right bottom")
                     md-button(ng-click="layout.openLanguageMenu($mdOpenMenu, $event)")
