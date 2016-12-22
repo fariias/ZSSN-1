@@ -7,7 +7,9 @@
         return $resource(
             '/api/person/:action/:person_id',
             {},
-            {}
+            {
+                update: {method: 'PUT', isArray: false}
+            }
         );
     }
 })();
