@@ -12,6 +12,7 @@
                     translateFilter("statistic.infected"),
                     translateFilter("statistic.nonInfected")
                 ],
+                colors: ["#F44336", "#8BC34A"],
                 data: []
             },
             resources: {
@@ -21,6 +22,15 @@
                     translateFilter("common.resources.medication"),
                     translateFilter("common.resources.ammunition")
                 ],
+                colors: ["#2196F3", "#FFEB3B", "#4CAF50", "#9E9E9E"],
+                data: []
+            },
+            resourcesPoints: {
+                labels:[
+                    translateFilter("statistic.totalPoints"),
+                    translateFilter("statistic.lostPoints")
+                ],
+                colors: ["#8BC34A", "#F44336"],
                 data: []
             }
         };
@@ -39,6 +49,10 @@
                     reports.resourceCount.food,
                     reports.resourceCount.medication,
                     reports.resourceCount.ammunition
+                ];
+                vm.charts.resourcesPoints.data = [
+                    reports.resourcePoints,
+                    reports.resourcesPointsLost
                 ];
             },
             function(error){

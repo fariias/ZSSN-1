@@ -91,10 +91,13 @@
             },
             statistic: {
                 title: "Estatísticas",
-                infection: "Porcentagem de infecção",
+                infection: "Porcentagem de sobreviventes",
                 resources: "Quantidade de recursos",
+                resourcesPoints: "Pontos de recursos",
                 infected: "Sobreviventes infectados",
-                nonInfected: "Sobreviventes não infectados"
+                nonInfected: "Sobreviventes não infectados",
+                totalPoints: "Total de pontos",
+                lostPoints: "Pontos perdidos por infecção"
             }
         });
 })();

@@ -3,14 +3,20 @@ div(layout="column", layout-align="center center")
 
 div(ng-if="vm.reports", layout="column", layout-gt-sm="row", layout-align-gt-sm="center")
     .md-whiteframe-z1(layout="column", flex-gt-sm="70")
-        .md-padding(layout-gt-sm="row", layout-padding, layout-align="space-around stretch")
+        .md-padding(layout-gt-sm="row", layout-padding, layout-align="space-around stretch", layout-wrap)
             div(flex="33")
                 label(translate="statistic.infection")
                 md-divider
                 canvas#doughnut-infection.chart.chart-doughnut(chart-data="vm.charts.infection.data",
-                    chart-labels="vm.charts.infection.labels")
+                    chart-labels="vm.charts.infection.labels", chart-colors="vm.charts.infection.colors")
             div(flex="33")
                 label(translate="statistic.resources")
                 md-divider
                 canvas#pie-resources.chart.chart-pie(chart-data="vm.charts.resources.data",
-                    chart-labels="vm.charts.resources.labels")
+                    chart-labels="vm.charts.resources.labels", chart-colors="vm.charts.resources.colors")
+
+            div(flex="33")
+                label(translate="statistic.resourcesPoints")
+                md-divider
+                canvas#doughnut-resources-points.chart.chart-doughnut(chart-data="vm.charts.resourcesPoints.data",
+                    chart-labels="vm.charts.resourcesPoints.labels", chart-colors="vm.charts.resourcesPoints.colors")
