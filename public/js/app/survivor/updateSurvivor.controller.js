@@ -35,6 +35,7 @@
                 delete vm.updateSurvivor._id;
             },
             function(error){
+                delete vm.person;
                 notifier.error("common.errors." + error.data);
             });
         }

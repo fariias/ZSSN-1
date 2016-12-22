@@ -10,6 +10,7 @@
             listAllSurvivors: listAllSurvivors,
             updatePerson: updatePerson,
             findPerson: findPerson,
+            searchPersonByName: searchPersonByName,
             makeTrade: makeTrade,
             reportInfection: reportInfection
         };
@@ -46,7 +47,7 @@
             var person = new Person(personData);
             var dfd = $q.defer();
 
-            person.$update({person_id: id}).then(function () {
+            person.$update({search: id}).then(function () {
                 dfd.resolve();
 
             }, function (error) {
@@ -60,7 +61,21 @@
             var person = new Person();
             var dfd = $q.defer();
 
-            person.$get({person_id: id}).then(function (response) {
+            person.$get({search: id}).then(function (response) {
+                dfd.resolve(response.survivor);
+
+            }, function (error) {
+                dfd.reject(error);
+            });
+
+            return dfd.promise;
+        }
+        
+        function searchPersonByName(name){
+            var person = new Person();
+            var dfd = $q.defer();
+
+            person.$search({search: name}).then(function (response) {
                 dfd.resolve(response.survivor);
 
             }, function (error) {
