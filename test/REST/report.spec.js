@@ -21,6 +21,7 @@ describe('/api/report/', () => {
                     expect(reports.personCount).to.eql(DBTestData.expectedReport.personCount);
                     expect(reports.resourceCount).to.eql(DBTestData.expectedReport.resourceCount);
                     expect(reports.resourcesPointsLost).to.eql(DBTestData.expectedReport.resourcesPointsLost);
+                    expect(reports.resourcePoints).to.eql(DBTestData.expectedReport.resourcePoints);
                     expect(reports.infected).to.eql(DBTestData.expectedReport.infected);
                     expect(reports.nonInfected).to.eql(DBTestData.expectedReport.nonInfected);
                     done(err);
@@ -83,6 +84,21 @@ describe('/api/report/', () => {
                     .end((err, res) => {
                         var reports = res.body;
                         expect(reports.resourcesPointsLost).to.eql(DBTestData.expectedReport.resourcesPointsLost);
+                        done(err);
+                    });
+            });
+        });
+    });
+
+    describe('/resources_points', () => {
+        describe('/GET', () => {
+
+            it('it should get the count of all resource points not lost to infection', (done) => {
+                agent.get('/api/report/resources_points')
+                    .expect(200)
+                    .end((err, res) => {
+                        var reports = res.body;
+                        expect(reports.resourcePoints).to.eql(DBTestData.expectedReport.resourcePoints);
                         done(err);
                     });
             });

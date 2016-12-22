@@ -17,6 +17,7 @@ module.exports = function(app){
             var totalInfected = 0;
             var totalNonInfected = 0;
             var resourcesPointsLost = 0;
+            var resourcePoints = 0;
 
             var resourceCount = {};
             for (let resource in constants.resourcePoints){
@@ -37,6 +38,8 @@ module.exports = function(app){
                     if (resourceCount.hasOwnProperty(resource) && survivor.inventory[resource]){
                         if (!survivor.infected){
                             resourceCount[resource] += survivor.inventory[resource];
+                            resourcePoints += survivor.inventory[resource] *
+                                constants.resourcePoints[resource];
                         }
                         else if (survivor.inventory[resource]){
                             resourcesPointsLost += survivor.inventory[resource] *
@@ -51,7 +54,7 @@ module.exports = function(app){
             var infected = (totalInfected / personCount) || 0;
             var nonInfected = (totalNonInfected / personCount) || 0;
 
-            res.send({personCount, resourceCount, resourcesPointsLost, infected, nonInfected})
+            res.send({personCount, resourceCount, resourcePoints, resourcesPointsLost, infected, nonInfected})
         });
     };
 

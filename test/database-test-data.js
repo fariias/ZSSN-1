@@ -188,6 +188,7 @@ var data = {
         infected: 0.25,
         nonInfected: 0.75,
         resourcesPointsLost: 1560,
+        resourcePoints: 4930,
         resourceCount: { water: 280, food: 870, medication: 350, ammunition: 500 }
     }
 };
