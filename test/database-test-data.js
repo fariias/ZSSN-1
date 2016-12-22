@@ -3,7 +3,7 @@ var data = {
         _id: "577c68c99c1c91dd96db5637",
         name: "Test Survivor",
         gender: "male",
-        age: "21",
+        age: 21,
         lastLocation: {
             latitude: "-16.686882",
             longitude: "-49.264789"
@@ -39,7 +39,7 @@ var data = {
         _id: "577c68c93c1c91dd86db5637",
         name: "Test Probably Infected Survivor",
         gender: "male",
-        age: "21",
+        age: 21,
         lastLocation: {
             latitude: "-16.686882",
             longitude: "-49.264789"
@@ -66,7 +66,7 @@ var data = {
         _id: "577c68c93c1c91dd96db6127",
         name: "Test Infected Survivor",
         gender: "male",
-        age: "21",
+        age: 21,
         lastLocation: {
             latitude: "-16.686882",
             longitude: "-49.264789"
@@ -111,7 +111,7 @@ var data = {
     insertPersonData: {
         name: "Test Survivor",
         gender: "male",
-        age: "21",
+        age: 21,
         lastLocation: {
             latitude: "-16.686882",
             longitude: "-49.264789"

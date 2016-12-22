@@ -17,7 +17,7 @@ describe('/api/person/', () => {
                 .expect(200)
                 .end((err, res) => {
                     var survivors = res.body.survivors;
-                    expect(survivors).to.have.length(2);
+                    expect(survivors).to.have.length(3);
                     done(err);
                 });
         });

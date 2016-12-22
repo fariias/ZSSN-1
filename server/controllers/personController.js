@@ -136,12 +136,12 @@ module.exports = function(app){
         var id = req.params.person_id;
 
         Person.findOne({_id: id}).lean().exec(function(err, survivor){
-            if (err){
+            if (err && err.name !== "CastError"){
                 res.status(503);
                 return res.send("databaseConnection");
             }
 
-            if (!survivor){
+            if (!survivor || (err && err.name === "CastError")){
                 res.status(404);
                 return res.send("personNotFound");
             }
@@ -166,7 +166,7 @@ module.exports = function(app){
     };
 
     controller.listAllSurvivors = function(req, res){
-        Person.find({infected: false}).lean().exec(function(err, survivors){
+        Person.find({}).lean().exec(function(err, survivors){
             if (err){
                 res.status(503);
                 return res.send("databaseConnection");
