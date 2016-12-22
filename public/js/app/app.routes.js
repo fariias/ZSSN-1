@@ -34,6 +34,11 @@
             controller: 'SurvivorController',
             controllerAs: 'vm'
         })
+        .when('/map',{
+            templateUrl: '/partials/map/map',
+            controller: 'MapController',
+            controllerAs: 'vm'
+        })
         .otherwise({
             redirectTo: '/index'
         });

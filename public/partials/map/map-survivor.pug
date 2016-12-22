@@ -1,0 +1,14 @@
+md-dialog(layout-padding)
+    h3
+        | {{dialog.survivor.name}}
+        i.mdi.mdi-biohazard.mdi-24px.side-margins.infected(ng-if="dialog.survivor.infected")
+            md-tooltip(md-direction="top")
+                span(translate="survivor.infected")
+    md-content.md-whiteframe-z1(md-theme="highlight", ng-hide="dialog.survivor.infected")
+        md-list.dense
+            label(translate="newSurvivor.inventory")
+            md-divider
+            md-list-item.md-2-line(ng-repeat="(resource, value) in dialog.survivor.inventory")
+                .md-list-item-text(translate="common.resources.{{resource}}")
+                md-badge.md-secondary {{value}}
+    md-button(translate="map.seeProfile", ng-href="/survivor?id={{dialog.survivor._id}}", ng-click="dialog.close()")

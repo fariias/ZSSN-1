@@ -81,6 +81,13 @@
                 notFound: "Não foi possível carregar esta página.",
                 lastLocation: "Ultima localização",
                 infected: "Infectado"
+            },
+            map: {
+                title: "Mapa de sobreviventes",
+                filter: "Filtro",
+                showNonInfected: "Mostrar sobreviventes não contaminados",
+                showInfected: "Mostrar sobreviventes contaminados",
+                seeProfile: "Ver perfil"
             }
         });
 })();
