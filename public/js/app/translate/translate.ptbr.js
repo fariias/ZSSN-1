@@ -85,12 +85,16 @@
             map: {
                 title: "Mapa de sobreviventes",
                 filter: "Filtro",
-                showNonInfected: "Mostrar sobreviventes não contaminados",
-                showInfected: "Mostrar sobreviventes contaminados",
+                showNonInfected: "Mostrar sobreviventes não infectados",
+                showInfected: "Mostrar sobreviventes infectados",
                 seeProfile: "Ver perfil"
             },
             statistic: {
-                title: "Estatísticas"
+                title: "Estatísticas",
+                infection: "Porcentagem de infecção",
+                resources: "Quantidade de recursos",
+                infected: "Sobreviventes infectados",
+                nonInfected: "Sobreviventes não infectados"
             }
         });
 })();

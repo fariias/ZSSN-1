@@ -7,7 +7,8 @@
         'ngMessages',
         'ngStorage',
         'pascalprecht.translate',
-        'ngMap'
+        'ngMap',
+        'chart.js'
     ]);
 
     angular
