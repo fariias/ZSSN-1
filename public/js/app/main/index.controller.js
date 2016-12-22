@@ -8,19 +8,24 @@
 
         vm.homeLinks = [
             {
-                icon: "perm_identity",
+                icon: "person_add",
                 title: "main.newSurvivor",
                 href: "/new_survivor"
             },
             {
-                icon: "edit",
+                icon: "edit_location",
                 title: "main.updateSurvivor",
                 href: "/update_survivor"
             },
             {
-                icon: "contacts",
+                icon: "group",
                 title: "main.findSomeone",
                 href: "/search_survivor"
+            },
+            {
+                icon: "swap_horiz",
+                title: "main.trade",
+                href: "/trade"
             },
             {
                 icon: "explore",
@@ -28,7 +33,7 @@
                 href: "/map"
             },
             {
-                icon: "show_chart",
+                icon: "pie_chart",
                 title: "main.statistic",
                 href: "/statistic"
             }
