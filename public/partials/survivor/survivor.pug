@@ -52,4 +52,9 @@ div(ng-if="vm.person", layout="column", layout-gt-sm="row", layout-align-gt-sm="
                 md-divider
                 br
                 ng-map(center="{{vm.person.lastLocation.latitude}}, {{vm.person.lastLocation.longitude}}", zoom="12", geo-fallback-center="-16.6862, -49.2648")
-                    marker(position="{{vm.person.lastLocation.latitude}}, {{vm.person.lastLocation.longitude}}")
+                    marker(ng-if="vm.person.infected",
+                        position="{{vm.person.lastLocation.latitude}}, {{vm.person.lastLocation.longitude}}",
+                        icon="{url:'images/red-marker.png', scaledSize:[25,40]}")
+                    marker(ng-if="!vm.person.infected",
+                        position="{{vm.person.lastLocation.latitude}}, {{vm.person.lastLocation.longitude}}",
+                        icon="{url:'images/green-marker.png', scaledSize:[25,40]}")

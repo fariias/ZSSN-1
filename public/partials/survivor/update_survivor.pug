@@ -55,7 +55,8 @@ div(layout="column", layout-gt-sm="row", layout-align-gt-sm="center")
                     md-divider
                     br
                     ng-map(center="{{vm.updateSurvivor.lastLocation.latitude}}, {{vm.updateSurvivor.lastLocation.longitude}}" zoom="12" on-click="vm.setLocation()", geo-fallback-center="-16.6862, -49.2648")
-                        marker(position="{{vm.updateSurvivor.lastLocation.latitude}}, {{vm.updateSurvivor.lastLocation.longitude}}")
+                        marker(position="{{vm.updateSurvivor.lastLocation.latitude}}, {{vm.updateSurvivor.lastLocation.longitude}}",
+                            icon="{url:'images/green-marker.png', scaledSize:[25,40]}")
 
                     br
 

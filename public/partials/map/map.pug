@@ -17,10 +17,11 @@ div(ng-if="vm.survivors", layout="column", layout-gt-sm="row", layout-align-gt-s
         ng-map(center="current-location", zoom="12", geo-fallback-center="-16.6862, -49.2648")
             marker(ng-repeat="survivor in vm.survivors", ng-if="!survivor.infected && vm.filters.nonInfected",
                 position="{{survivor.lastLocation.latitude}}, {{survivor.lastLocation.longitude}}",
+                icon="{url:'images/green-marker.png', scaledSize:[25,40]}",
                 data="{{survivor}}",
                 on-click="vm.showSurvivor(survivor)")
             marker(ng-repeat="survivor in vm.survivors", ng-if="survivor.infected && vm.filters.infected",
                 position="{{survivor.lastLocation.latitude}}, {{survivor.lastLocation.longitude}}",
-                icon="{url:'images/green-marker.png', scaledSize:[50,50]}",
+                icon="{url:'images/red-marker.png', scaledSize:[25,40]}",
                 data="{{survivor}}",
                 on-click="vm.showSurvivor()")
