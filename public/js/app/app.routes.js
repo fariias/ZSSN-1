@@ -39,6 +39,11 @@
             controller: 'MapController',
             controllerAs: 'vm'
         })
+        .when('/statistic',{
+            templateUrl: '/partials/statistic/statistic',
+            controller: 'StatisticController',
+            controllerAs: 'vm'
+        })
         .otherwise({
             redirectTo: '/index'
         });

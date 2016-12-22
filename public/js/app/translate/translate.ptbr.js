@@ -88,6 +88,9 @@
                 showNonInfected: "Mostrar sobreviventes não contaminados",
                 showInfected: "Mostrar sobreviventes contaminados",
                 seeProfile: "Ver perfil"
+            },
+            statistic: {
+                title: "Estatísticas"
             }
         });
 })();
