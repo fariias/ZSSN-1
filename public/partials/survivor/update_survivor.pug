@@ -41,14 +41,16 @@ div(layout="column", layout-gt-sm="row", layout-align-gt-sm="center")
                     md-content(flex="50", layout-padding)
                         md-content.md-whiteframe-z1(md-theme="highlight")
                             md-list.dense
-                                label(translate="newSurvivor.inventory")
+                                .md-subhead.md-padding
+                                    b(translate="newSurvivor.inventory")
                                 md-divider
                                 md-list-item.md-2-line(ng-repeat="(resource, value) in vm.updateSurvivor.inventory")
                                     .md-list-item-text(translate="common.resources.{{resource}}")
                                     md-badge.md-secondary {{value}}
 
                 .md-padding
-                    label(translate="newSurvivor.pickOnMap")
+                    .md-subhead
+                        b(translate="newSurvivor.pickOnMap")
                     md-divider
                     br
                     ng-map(center="{{vm.updateSurvivor.lastLocation.latitude}}, {{vm.updateSurvivor.lastLocation.longitude}}" zoom="12" on-click="vm.setLocation()", geo-fallback-center="-16.6862, -49.2648")

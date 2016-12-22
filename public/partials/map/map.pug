@@ -1,6 +1,7 @@
 div(ng-if="vm.survivors", layout="column", layout-gt-sm="row", layout-align-gt-sm="center")
     .md-whiteframe-z1(layout="column", flex-gt-sm="70", layout-padding)
-        label(translate="map.filter")
+        .md-subhead
+            b(translate="map.filter")
         div(layout-gt-sm="row")
             div(flex-gt-sm="50")
                 md-checkbox(ng-model="vm.filters.nonInfected")

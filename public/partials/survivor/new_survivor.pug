@@ -36,7 +36,8 @@ div(layout="column", layout-gt-sm="row", layout-align-gt-sm="center")
                     md-content(flex="50", layout-padding)
                         md-content.md-whiteframe-z1(md-theme="highlight")
                             md-list.dense
-                                label(translate="newSurvivor.inventory")
+                                .md-subhead.md-padding
+                                    b(translate="newSurvivor.inventory")
                                 md-divider
                                 md-list-item.md-2-line(ng-repeat="(resource, value) in vm.newSurvivor.inventory",
                                     ng-show="vm.resources[resource]")
@@ -48,10 +49,11 @@ div(layout="column", layout-gt-sm="row", layout-align-gt-sm="center")
                                 md-list-item.md-2-line(ng-show="vm.isInventoryEmpty()")
                                     .md-list-item-text(translate="newSurvivor.emptyInventory")
 
-                        label(translate="newSurvivor.oneTimeInventory")
+                        .md-subhead(translate="newSurvivor.oneTimeInventory")
 
                     .md-padding(layout="column", flex="50")
-                        label(translate="newSurvivor.addResource")
+                        .md-subhead
+                            b(translate="newSurvivor.addResource")
                         md-divider
                         div(layout="column", layout-gt-sm="row")
                             md-input-container(flex="50")
@@ -70,7 +72,8 @@ div(layout="column", layout-gt-sm="row", layout-align-gt-sm="center")
                         md-button(translate="common.add", ng-click="vm.addResource(vm.newResource, vm.resourceCount)")
 
             .md-padding
-                label(translate="newSurvivor.pickOnMap")
+                .md-subhead
+                    b(translate="newSurvivor.pickOnMap")
                 md-divider
                 br
                 ng-map(center="current-location" zoom="12" on-click="vm.setLocation()", geo-fallback-center="-16.6862, -49.2648")
