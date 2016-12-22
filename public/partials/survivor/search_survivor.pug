@@ -19,7 +19,7 @@ div(layout="column", layout-gt-sm="row", layout-align-gt-sm="center")
                         md-list-item.md-2-line(ng-repeat-start="survivor in vm.survivors")
                             .md-list-item-text(ng-class="{'infected': survivor.infected}") {{survivor.name}}
 
-                            md-button.md-icon-button.md-secondary
+                            md-button.md-icon-button.md-secondary(ng-href="/survivor?id={{survivor._id}}")
                                 md-tooltip(md-direction="top", ng-hide="survivor.infected")
                                     span(translate="searchSurvivor.tooltips.view")
                                 md-tooltip(md-direction="top", ng-show="survivor.infected")

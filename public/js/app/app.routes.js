@@ -29,6 +29,11 @@
             controller: 'SearchSurvivorController',
             controllerAs: 'vm'
         })
+        .when('/survivor',{
+            templateUrl: '/partials/survivor/survivor',
+            controller: 'SurvivorController',
+            controllerAs: 'vm'
+        })
         .otherwise({
             redirectTo: '/index'
         });

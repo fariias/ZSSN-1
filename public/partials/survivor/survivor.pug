@@ -1,0 +1,51 @@
+div(ng-if="vm.notFound", layout="column", layout-align="center center")
+    b.md-warn(translate="survivor.notFound")
+
+div(ng-if="vm.person", layout="column", layout-gt-sm="row", layout-align-gt-sm="center")
+    .md-whiteframe-z1(layout="column", flex-gt-sm="70")
+        div(layout-padding, layout="row")
+            h3
+                | {{vm.person.name}}
+                i.mdi.mdi-biohazard.mdi-24px.side-margins.infected(ng-if="vm.person.infected")
+                    md-tooltip(md-direction="top")
+                        span(translate="survivor.infected")
+
+            span(flex)
+            .md-padding(ng-if="!vm.person.infected", layout="row")
+                md-button.md-icon-button
+                    md-icon.mdi.mdi-account-switch.mdi-24px.side-margins
+                md-button.md-icon-button(ng-click="vm.flagAsInfected($event)")
+                    md-icon.mdi.mdi-biohazard.mdi-24px.side-margins
+
+        md-divider
+        md-content(layout="column", layout-gt-sm="row")
+            .md-padding(flex="50")
+                div
+                    b(translate="updateSurvivor.id")
+                    = ': '
+                    | {{vm.person._id}}
+                div
+                    b(translate="newSurvivor.age")
+                    = ': '
+                    | {{vm.person.age}}
+                div
+                    b(translate="newSurvivor.gender")
+                    = ': '
+                    | {{'common.' + vm.person.gender | translate}}
+
+                br
+
+                md-content.md-whiteframe-z1(md-theme="highlight")
+                    md-list.dense
+                        label(translate="newSurvivor.inventory")
+                        md-divider
+                        md-list-item.md-2-line(ng-repeat="(resource, value) in vm.person.inventory")
+                            .md-list-item-text(translate="common.resources.{{resource}}")
+                            md-badge.md-secondary {{value}}
+
+            .md-padding(flex="50")
+                label(translate="survivor.lastLocation")
+                md-divider
+                br
+                ng-map(center="{{vm.person.lastLocation.latitude}}, {{vm.person.lastLocation.longitude}}", zoom="12", geo-fallback-center="-16.6862, -49.2648")
+                    marker(position="{{vm.person.lastLocation.latitude}}, {{vm.person.lastLocation.longitude}}")

@@ -76,6 +76,11 @@
                     yourName: "Seu nome",
                     success: "Seu relatório de infecção foi registrado. Se mais pessoas reportaram isto, logo ela será marcada como infectada pelo sistema."
                 }
+            },
+            survivor: {
+                notFound: "Não foi possível carregar esta página.",
+                lastLocation: "Ultima localização",
+                infected: "Infectado"
             }
         });
 })();
