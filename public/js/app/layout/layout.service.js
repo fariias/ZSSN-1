@@ -49,7 +49,11 @@
         return {
             getBreadcrumbs: getBreadcrumbs,
             goTo: goTo,
-            isActiveView: isActiveView
+            isActiveView: isActiveView,
+            openLanguageMenu: openLanguageMenu,
+            getLanguages: language.getLanguages,
+            setLanguage: language.setLanguage,
+            getActiveLanguageSettings: language.getActiveLanguageSettings
         };
         
         function getBreadcrumbs(){
@@ -62,6 +66,10 @@
 
         function isActiveView(path){
             return $location.path() === path;
+        }
+
+        function openLanguageMenu($mdOpenMenu, ev) {
+            $mdOpenMenu(ev);
         }
     }
 })();

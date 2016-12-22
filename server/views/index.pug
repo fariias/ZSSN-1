@@ -7,6 +7,16 @@ block main-content
                 h3
                     a(href="/index", layout-padding, translate="main.zssn")
                 span(flex)
+                md-menu(md-position-mode="target-right bottom")
+                    md-button(ng-click="layout.openLanguageMenu($mdOpenMenu, $event)")
+                        img.side-margins(ng-src="{{layout.getActiveLanguageSettings().img}}")
+                        | {{layout.getActiveLanguageSettings().name}}
+                        md-icon keyboard_arrow_down
+                    md-menu-content
+                        md-button.left-align(ng-repeat="language in layout.getLanguages()",
+                            ng-click="layout.setLanguage(language.key)")
+                            img.side-margins(ng-src="{{language.img}}")
+                            | {{language.name}}
         md-content(flex, layout="row")
             md-content(flex="grow", layout-padding)
                 div(md-breadcrumbs="layout.getBreadcrumbs()")

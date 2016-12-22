@@ -2,8 +2,9 @@
     angular
         .module('zssn')
         .config(Config);
-    Config.$inject = ['$translateProvider', 'translatePTBR'];
-    function Config($translateProvider, translatePTBR) {
+    Config.$inject = ['$translateProvider', 'translatePTBR', 'translateENUS'];
+    function Config($translateProvider, translatePTBR, translateENUS) {
         $translateProvider.translations('ptbr', translatePTBR);
+        $translateProvider.translations('enus', translateENUS);
     }
 })();
