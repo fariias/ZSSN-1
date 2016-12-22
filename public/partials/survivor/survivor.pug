@@ -13,8 +13,12 @@ div(ng-if="vm.person", layout="column", layout-gt-sm="row", layout-align-gt-sm="
             span(flex)
             .md-padding(ng-if="!vm.person.infected", layout="row")
                 md-button.md-icon-button
+                    md-tooltip(md-direction="top")
+                        span(translate="searchSurvivor.tooltips.trade")
                     md-icon.mdi.mdi-account-switch.mdi-24px.side-margins
                 md-button.md-icon-button(ng-click="vm.flagAsInfected($event)")
+                    md-tooltip(md-direction="top")
+                        span(translate="searchSurvivor.tooltips.flagAsInfected")
                     md-icon.mdi.mdi-biohazard.mdi-24px.side-margins
 
         md-divider
