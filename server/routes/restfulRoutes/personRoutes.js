@@ -8,9 +8,10 @@ module.exports = function (app) {
     app.route('/api/person/trade')
         .post(personController.makeTrade);
 
-    app.route('/api/person/:person_id')
+    app.route('/api/person/:search')
         .put(personController.updateSurvivor)
-        .get(personController.findSurvivor);
+        .get(personController.findSurvivor)
+        .search(personController.searchSurvivorByName);
 
     app.route('/api/person')
         .post(personController.registerSurvivor)

@@ -110,7 +110,7 @@ module.exports = function(app){
     };
 
     controller.updateSurvivor = function(req, res){
-        var id = req.params.person_id;
+        var id = req.params.search;
         var updatedSurvivorData = req.body;
         
         delete updatedSurvivorData.inventory;
@@ -133,7 +133,7 @@ module.exports = function(app){
     };
 
     controller.findSurvivor = function(req, res){
-        var id = req.params.person_id;
+        var id = req.params.search;
 
         Person.findOne({_id: id}).lean().exec(function(err, survivor){
             if (err && err.name !== "CastError"){
@@ -148,6 +148,24 @@ module.exports = function(app){
 
             res.send({survivor});
         });
+    };
+
+    controller.searchSurvivorByName = function(req, res){
+        var search = req.params.search;
+
+        Person.find({name: { "$regex": search, "$options": "gi" }}).exec(function(err, survivors){
+            if (err){
+                res.status(503);
+                return res.send("databaseConnection");
+            }
+
+            if (!survivors.length){
+                res.status(404);
+                return res.send("personNotFound");
+            }
+
+            res.send({survivors});
+        })
     };
 
     controller.registerSurvivor = function(req, res){

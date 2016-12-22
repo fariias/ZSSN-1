@@ -70,6 +70,45 @@ describe('/api/person/:person_id', () => {
         });
     });
 
+    describe('/SEARCH survivors with "Infected"', () => {
+
+
+        before((done) => {
+            Person.remove({}, () => {
+                Person.create(DBTestData.notInfectedPerson, DBTestData.almostInfectedPerson, DBTestData.infectedPerson, () => {
+                    done();
+                });
+            });
+        });
+
+        it('it should return 2 survivors', (done) => {
+            agent.search('/api/person/Infected')
+                .expect(200)
+                .end((err, res) => {
+                    var survivors = res.body.survivors;
+                    expect(survivors).to.have.length(2);
+                    done(err);
+                });
+        });
+    });
+
+    describe('/SEARCH no survivor match', () => {
+
+        before((done) => {
+            Person.remove({}, () => {
+                done();
+            });
+        });
+
+        it('it should return 404', (done) => {
+            agent.search('/api/person/Infected')
+                .expect(404)
+                .end((err, res) => {
+                    done(err);
+                });
+        });
+    });
+
     afterEach((done) => {
         Person.remove({}, () => {
             done();
