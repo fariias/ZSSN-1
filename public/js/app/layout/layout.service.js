@@ -6,10 +6,44 @@
     function Service($location, language) {
 
         var pages = {
-
+            "index": {name: "pages.index", url: "/index"},
+            "new_survivor": {name: "pages.newSurvivor", url: "/new_survivor"},
+            "update_survivor": {name: "pages.updateSurvivor", url: "/update_survivor"},
+            "search_survivor": {name: "pages.searchSurvivor", url: "/search_survivor"},
+            "survivor": {name: "pages.survivor", url: "/survivor"},
+            "map": {name: "pages.map", url: "/map"},
+            "statistic": {name: "pages.statistic", url: "/statistic"},
         };
 
         var breadcrumbs = {
+            "/index": [
+                pages.index
+            ],
+            "/new_survivor": [
+                pages.index,
+                pages.new_survivor
+            ],
+            "/update_survivor": [
+                pages.index,
+                pages.update_survivor
+            ],
+            "/search_survivor": [
+                pages.index,
+                pages.search_survivor
+            ],
+            "/survivor": [
+                pages.index,
+                pages.search_survivor,
+                pages.survivor
+            ],
+            "/map": [
+                pages.index,
+                pages.map
+            ],
+            "/statistic": [
+                pages.index,
+                pages.statistic
+            ]
         };
         
         return {

@@ -12,6 +12,15 @@
                 statistic: "Quero ver as últimas estatísticas",
                 map: "Quero ver o mapa de sobreviventes"
             },
+            pages: {
+                index: "Início",
+                newSurvivor: "Novo Sobrevivente",
+                updateSurvivor: "Atualizar Sobrevivente",
+                searchSurvivor: "Buscar por Sobrevivente",
+                survivor: "Perfil do Sobrevivente",
+                map: "Mapa de Sobreviventes",
+                statistic: "Estatísticas"
+            },
             common: {
                 male: "Masculino",
                 female: "Feminino",
@@ -39,7 +48,6 @@
                 }
             },
             newSurvivor: {
-                title: "Novo Sobrevivente",
                 name: "Nome",
                 age: "Idade",
                 gender: "Sexo",
@@ -55,13 +63,11 @@
                 created: "Você foi cadastrado com sucesso! Sua chave é <b>{{id}}</b>, guarde-a bem, pois você precisará dela para atualizar seus dados!"
             },
             updateSurvivor: {
-                title: "Atualizar Sobrevivente",
                 id: "Chave de identificação",
                 success: "Dados atualizados com sucesso!",
                 infected: "Este usuário foi marcado como infectado. Não é possível realizar alterações."
             },
             searchSurvivor: {
-                title: "Buscar por sobrevivente",
                 name: "Nome do sobrevivente",
                 notFound: "Nenhum sobrevivente foi encontrado com este nome",
                 tooltips: {
@@ -83,14 +89,12 @@
                 infected: "Infectado"
             },
             map: {
-                title: "Mapa de sobreviventes",
                 filter: "Filtro",
                 showNonInfected: "Mostrar sobreviventes não infectados",
                 showInfected: "Mostrar sobreviventes infectados",
                 seeProfile: "Ver perfil"
             },
             statistic: {
-                title: "Estatísticas",
                 infection: "Porcentagem de sobreviventes",
                 resources: "Quantidade de recursos",
                 resourcesPoints: "Pontos de recursos",

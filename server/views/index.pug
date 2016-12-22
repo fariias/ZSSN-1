@@ -8,4 +8,6 @@ block main-content
                     a(href="/index", layout-padding, translate="main.zssn")
                 span(flex)
         md-content(flex, layout="row")
-            md-content(flex="grow", layout-padding, ng-view)
+            md-content(flex="grow", layout-padding)
+                div(md-breadcrumbs="layout.getBreadcrumbs()")
+                div(ng-view)
