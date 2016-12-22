@@ -6,7 +6,8 @@ md-dialog(layout-padding)
                 span(translate="survivor.infected")
     md-content.md-whiteframe-z1(md-theme="highlight", ng-hide="dialog.survivor.infected")
         md-list.dense
-            label(translate="newSurvivor.inventory")
+            .md-subhead.md-padding
+                b(translate="newSurvivor.inventory")
             md-divider
             md-list-item.md-2-line(ng-repeat="(resource, value) in dialog.survivor.inventory")
                 .md-list-item-text(translate="common.resources.{{resource}}")
