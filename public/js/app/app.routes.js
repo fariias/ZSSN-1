@@ -19,6 +19,11 @@
             controller: 'NewSurvivorController',
             controllerAs: 'vm'
         })
+        .when('/update_survivor',{
+            templateUrl: '/partials/survivor/update_survivor',
+            controller: 'UpdateSurvivorController',
+            controllerAs: 'vm'
+        })
         .otherwise({
             redirectTo: '/index'
         });

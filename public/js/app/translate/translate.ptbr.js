@@ -19,10 +19,15 @@
                 add: "Adicionar",
                 create: "Criar",
                 back: "Voltar",
+                search: "Buscar",
+                update: "Atualizar",
+                resetModifications: "Voltar modificações",
                 errors: {
                     required: "É preciso preencher este campo",
                     age: "Informe sua idade em números corretamente",
-                    count: "Informe corretamente a quantidade"
+                    count: "Informe corretamente a quantidade",
+                    databaseConnection: "Não foi possível se conectar ao servidor, tente novamente.",
+                    personNotFound: "Não foi possível encontrar ninguém com esta chave"
                 },
                 resources: {
                     water: "Água",
@@ -46,6 +51,12 @@
                 pickYourLocation: "Escolha sua localização",
                 fillAllFields: "Preencha todos os campos corretamente",
                 created: "Você foi cadastrado com sucesso! Sua chave é <b>{{id}}</b>, guarde-a bem, pois você precisará dela para atualizar seus dados!"
+            },
+            updateSurvivor: {
+                title: "Atualizar Sobrevivente",
+                id: "Chave de identificação",
+                success: "Dados atualizados com sucesso!",
+                infected: "Este usuário foi marcado como infectado. Não é possível realizar alterações."
             }
         });
 })();

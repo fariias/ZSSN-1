@@ -77,7 +77,7 @@
                 };
             },
             function(error){
-                notifier.error("common.errors." + error);
+                notifier.error("common.errors." + error.data);
             })
         }
 

@@ -5,7 +5,7 @@ module.exports =  function(){
     var personSchema = mongoose.Schema({
         name: String,
         gender: String,
-        age: String,
+        age: Number,
         lastLocation: {
             latitude: String,
             longitude: String
