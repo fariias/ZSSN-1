@@ -11,8 +11,12 @@ install:
 - npm test
 after_success:
   - npm run -s build-openshift
+  - ls -a
   - cd dist
   - bower install
+  - cd public/vendor
+  - ls -a
+  - cd ../..
   - git init
   - git config --global user.email "travis@localhost.localdomain"
   - git config --global user.name "Travis CI"
