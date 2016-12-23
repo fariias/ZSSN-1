@@ -89,7 +89,8 @@
             survivor: {
                 notFound: "Não foi possível carregar esta página.",
                 lastLocation: "Ultima localização",
-                infected: "Infectado"
+                infected: "Infectado",
+                infectedInventory: "Inventário (Antes de morrer)"
             },
             map: {
                 filter: "Filtro",

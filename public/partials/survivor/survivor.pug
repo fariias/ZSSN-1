@@ -39,7 +39,8 @@ div(ng-if="vm.person", layout="column", layout-gt-sm="row", layout-align-gt-sm="
                 md-content.md-whiteframe-z1(md-theme="highlight")
                     md-list.dense
                         .md-subhead.md-padding
-                            b(translate="newSurvivor.inventory")
+                            b(translate="newSurvivor.inventory", ng-hide="vm.person.infected")
+                            b(translate="survivor.infectedInventory", ng-show="vm.person.infected")
                         md-divider
                         md-list-item.md-2-line(ng-repeat="(resource, value) in vm.person.inventory")
                             .md-list-item-text(translate="common.resources.{{resource}}")
