@@ -23,5 +23,7 @@ This is a complete solution to the two-part test. The complete specification to 
   - **Angular Translate** - Used to make the application multi-language-ready (It's a world zombie infection after all!)
   - **ngStorage** - Used to storage data on Web Storage
   - **Angular Resource** - Used to consume the RESTful API
+  - **GoogleMap AngularJS** - Used to manage Google Maps API
+  - **Angular Charts.js** - Used to display the reports in charts
   
 ### A Live version of this application can be used [here](http://zssn-leoapps.rhcloud.com/)
