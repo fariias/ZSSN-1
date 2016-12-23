@@ -98,12 +98,18 @@
             },
             statistic: {
                 infection: "Porcentagem de sobreviventes",
-                resources: "Quantidade de recursos",
+                resources: "Quantidade média de recursos",
                 resourcesPoints: "Pontos de recursos",
-                infected: "Sobreviventes infectados",
-                nonInfected: "Sobreviventes não infectados",
-                totalPoints: "Total de pontos",
-                lostPoints: "Pontos perdidos por infecção"
+                infected: "Sobreviventes infectados (%)",
+                nonInfected: "Sobreviventes saudáveis (%)",
+                totalPoints: "Pontos de recursos",
+                lostPoints: "Pontos perdidos por infecção",
+                resourceStatistic: {
+                    water: "Agua / sobrevivente",
+                    food: "Comida / sobrevivente",
+                    medication: "Medicação / sobrevivente",
+                    ammunition: "Munição / sobrevivente"
+                }
             },
             trade: {
                 survivorId: "Sua chave",

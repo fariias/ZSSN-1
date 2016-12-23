@@ -17,10 +17,10 @@
             },
             resources: {
                 labels:[
-                    translateFilter("common.resources.water"),
-                    translateFilter("common.resources.food"),
-                    translateFilter("common.resources.medication"),
-                    translateFilter("common.resources.ammunition")
+                    translateFilter("statistic.resourceStatistic.water"),
+                    translateFilter("statistic.resourceStatistic.food"),
+                    translateFilter("statistic.resourceStatistic.medication"),
+                    translateFilter("statistic.resourceStatistic.ammunition")
                 ],
                 colors: ["#2196F3", "#FFEB3B", "#4CAF50", "#9E9E9E"],
                 data: []
@@ -40,15 +40,19 @@
         function loadReports(){
             vm.promise = reportService.getAllReports().then(function(reports){
                 vm.reports = reports;
+
+                vm.nonInfectedSurvivors = reports.personCount * reports.nonInfected;
+                vm.infectedSurvivors = reports.personCount - vm.nonInfectedSurvivors;
+
                 vm.charts.infection.data = [
-                    reports.personCount * reports.infected,
-                    reports.personCount * reports.nonInfected
+                    (reports.nonInfected * 100).toFixed(2),
+                    (reports.infected * 100).toFixed(2)
                 ];
                 vm.charts.resources.data = [
-                    reports.resourceCount.water,
-                    reports.resourceCount.food,
-                    reports.resourceCount.medication,
-                    reports.resourceCount.ammunition
+                    reports.resourceCount.water / vm.nonInfectedSurvivors,
+                    reports.resourceCount.food / vm.nonInfectedSurvivors,
+                    reports.resourceCount.medication / vm.nonInfectedSurvivors,
+                    reports.resourceCount.ammunition / vm.nonInfectedSurvivors
                 ];
                 vm.charts.resourcesPoints.data = [
                     reports.resourcePoints,
