@@ -45,6 +45,7 @@ module.exports = function(app){
                 res.status(400);
                 return res.send("wrongInventory");
             }
+            
             if (constants.resourcePoints.hasOwnProperty(resource)){
                 totalSurvivorPoints += constants.resourcePoints[resource] * survivorOffered[resource];
                 totalTraderPoints += constants.resourcePoints[resource] * traderOffered[resource];
@@ -73,12 +74,14 @@ module.exports = function(app){
             }
 
             for (let resource in constants.resourcePoints){
+                if(survivorOffered[resource] > survivor.inventory[resource]){
+                    res.status(403);
+                    return res.send("notPossibleTrade");
+                }
                 if (constants.resourcePoints.hasOwnProperty(resource)){
                     survivor.inventory[resource] += (traderOffered[resource] - survivorOffered[resource]);
                 }
             }
-
-            survivor.save();
 
             Person.findOne({_id: traderId}).exec(function(err, trader){
                 if (err){
@@ -97,11 +100,16 @@ module.exports = function(app){
                 }
 
                 for (let resource in constants.resourcePoints){
+                    if(traderOffered[resource] > trader.inventory[resource]){
+                        res.status(403);
+                        return res.send("notPossibleTrade");
+                    }
                     if (constants.resourcePoints.hasOwnProperty(resource)){
                         trader.inventory[resource] += (survivorOffered[resource] - traderOffered[resource]);
                     }
                 }
 
+                survivor.save();
                 trader.save();
 
                 res.send();

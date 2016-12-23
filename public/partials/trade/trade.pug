@@ -35,7 +35,7 @@ div(layout="column", layout-gt-sm="row", layout-align-gt-sm="center")
                         div(ng-repeat="resource in vm.resources", layout="row", flex="auto", layout-align="start center")
                             md-input-container
                                 label(translate="common.resources.{{resource.id}}")
-                                input(type="number", required, min="0", ng-model="vm.survivorOffer[resource.id]")
+                                input(type="number", required, min="0", ng-max="vm.survivor.inventory[resource.id]", ng-model="vm.survivorOffer[resource.id]")
                             div
                                 md-badge(translate="trade.points", translate-values="{points: resource.score}")
 
@@ -78,7 +78,7 @@ div(layout="column", layout-gt-sm="row", layout-align-gt-sm="center")
                         div(ng-repeat="resource in vm.resources", layout="row", flex="auto", layout-align="start center")
                             md-input-container
                                 label(translate="common.resources.{{resource.id}}")
-                                input(type="number", required, min="0", ng-model="vm.traderOffer[resource.id]")
+                                input(type="number", required, min="0", ng-max="vm.trader.inventory[resource.id]", ng-model="vm.traderOffer[resource.id]")
                             div
                                 md-badge(translate="trade.points", translate-values="{points: resource.score}")
 
