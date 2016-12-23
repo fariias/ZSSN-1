@@ -76,6 +76,26 @@ describe('/api/person/trade', () => {
         });
     });
 
+    describe('/POST fair trade with resources not owned', () => {
+
+        before((done) => {
+            Person.remove({}, () => {
+                Person.create(DBTestData.notInfectedPerson, DBTestData.almostInfectedPerson, () => {
+                    done();
+                });
+            });
+        });
+
+        it('it should return 403', (done) => {
+            agent.post('/api/person/trade')
+                .send(DBTestData.fairNotOwnedTrade)
+                .expect(403)
+                .end((err, res) => {
+                    done(err);
+                });
+        });
+    });
+
     describe('/POST fair trade with not existent trader', () => {
 
         before((done) => {

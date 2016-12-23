@@ -133,6 +133,22 @@ var data = {
             ammunition: 0
         },
         traderOffered: {
+            water: 1,
+            food: 22,
+            medication: 0,
+            ammunition: 0
+        }
+    },
+    fairNotOwnedTrade: {
+        survivor: "577c68c99c1c91dd96db5637",
+        trader: "577c68c93c1c91dd86db5637",
+        survivorOffered: {
+            water: 10,
+            food: 10,
+            medication: 0,
+            ammunition: 0
+        },
+        traderOffered: {
             water: 0,
             food: 0,
             medication: 0,
@@ -160,10 +176,10 @@ var data = {
             ammunition: 0
         },
         traderOffered: {
-            water: 0,
-            food: 0,
+            water: 1,
+            food: 22,
             medication: 0,
-            ammunition: 70
+            ammunition: 0
         }
     },
     unfairTrade: {
@@ -176,10 +192,10 @@ var data = {
             ammunition: 0
         },
         traderOffered: {
-            water: 0,
-            food: 0,
+            water: 1,
+            food: 22,
             medication: 0,
-            ammunition: 70
+            ammunition: 0
         }
     },
     // business logic was manually applied here. If test data above change, this MUST be recalculated
