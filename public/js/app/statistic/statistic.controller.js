@@ -45,8 +45,8 @@
                 vm.infectedSurvivors = reports.personCount - vm.nonInfectedSurvivors;
 
                 vm.charts.infection.data = [
-                    (reports.nonInfected * 100).toFixed(2),
-                    (reports.infected * 100).toFixed(2)
+                    (reports.infected * 100).toFixed(2),
+                    (reports.nonInfected * 100).toFixed(2)
                 ];
                 vm.charts.resources.data = [
                     reports.resourceCount.water / vm.nonInfectedSurvivors,
