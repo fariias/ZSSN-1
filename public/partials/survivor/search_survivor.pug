@@ -23,7 +23,8 @@ div(layout="column", layout-gt-sm="row", layout-align-gt-sm="center")
                                     span(translate="searchSurvivor.tooltips.viewInfected")
                                 md-icon.mdi.mdi-account-card-details.mdi-24px(ng-class="{'infected': survivor.infected}")
 
-                            md-button.md-icon-button.md-secondary(ng-disabled="survivor.infected")
+                            md-button.md-icon-button.md-secondary(ng-href="/trade?trader={{survivor._id}}",
+                                ng-disabled="survivor.infected")
                                 md-tooltip(md-direction="top", ng-hide="survivor.infected")
                                     span(translate="searchSurvivor.tooltips.trade")
                                 md-icon.mdi.mdi-account-switch.mdi-24px

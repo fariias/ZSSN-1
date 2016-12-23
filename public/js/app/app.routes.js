@@ -44,6 +44,11 @@
             controller: 'StatisticController',
             controllerAs: 'vm'
         })
+        .when('/trade',{
+            templateUrl: '/partials/trade/trade',
+            controller: 'TradeController',
+            controllerAs: 'vm'
+        })
         .otherwise({
             redirectTo: '/index'
         });

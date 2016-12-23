@@ -1,0 +1,91 @@
+div(layout="column", layout-gt-sm="row", layout-align-gt-sm="center")
+    .md-whiteframe-z1(layout="column", flex-gt-sm="70", layout-padding)
+        md-content(layout="column", layout-gt-sm="row")
+            .md-padding(flex="50")
+                div(layout="column", layout-gt-sm="row")
+                    md-input-container(flex="auto")
+                        label(translate="trade.survivorId")
+                        md-icon search
+                        input(type="text", ng-model="vm.survivorId")
+                    div(flex, layout-padding)
+                        md-button(translate="common.search", ng-click="vm.searchSurvivor()")
+
+                div(ng-if="vm.survivor")
+                    .md-headline
+                        | {{vm.survivor.name}}
+                        i.mdi.mdi-biohazard.mdi-24px.side-margins.infected(ng-if="vm.survivor.infected")
+                            md-tooltip(md-direction="top")
+                                span(translate="survivor.infected")
+                    md-divider
+                    br
+                    md-content.md-whiteframe-z1(md-theme="highlight", ng-hide="vm.survivor.infected")
+                        md-list.dense
+                            .md-subhead.md-padding
+                                b(translate="newSurvivor.inventory")
+                            md-divider
+                            md-list-item.md-2-line(ng-repeat="(resource, value) in vm.survivor.inventory")
+                                .md-list-item-text(translate="common.resources.{{resource}}")
+                                md-badge.md-secondary {{value}}
+
+                    br
+                    .md-subhead(translate="trade.yourOffer")
+                    md-divider
+                    br
+                    form(name="vm.survivorOffered")
+                        div(ng-repeat="resource in vm.resources", layout="row", flex="auto", layout-align="start center")
+                            md-input-container
+                                label(translate="common.resources.{{resource.id}}")
+                                input(type="number", required, min="0", ng-model="vm.survivorOffer[resource.id]")
+                            div
+                                md-badge(translate="trade.points", translate-values="{points: resource.score}")
+
+                    .md-subhead
+                        b(translate="trade.totalPoints")
+                        = ': '
+                        | {{vm.survivorTotalPoints()}}
+
+            .md-padding(flex="50")
+                div(layout="column", layout-gt-sm="row")
+                    md-input-container(flex="auto")
+                        label(translate="trade.traderId")
+                        md-icon search
+                        input(type="text", ng-model="vm.traderId")
+                    div(flex, layout-padding)
+                        md-button(translate="common.search", ng-click="vm.searchTrader()")
+
+                div(ng-if="vm.trader")
+                    .md-headline
+                        | {{vm.trader.name}}
+                        i.mdi.mdi-biohazard.mdi-24px.side-margins.infected(ng-if="vm.trader.infected")
+                            md-tooltip(md-direction="top")
+                                span(translate="survivor.infected")
+                    md-divider
+                    br
+                    md-content.md-whiteframe-z1(md-theme="highlight", ng-hide="vm.trader.infected")
+                        md-list.dense
+                            .md-subhead.md-padding
+                                b(translate="newSurvivor.inventory")
+                            md-divider
+                            md-list-item.md-2-line(ng-repeat="(resource, value) in vm.trader.inventory")
+                                .md-list-item-text(translate="common.resources.{{resource}}")
+                                md-badge.md-secondary {{value}}
+
+                    br
+                    .md-subhead(translate="trade.traderOffer")
+                    md-divider
+                    br
+                    form(name="vm.traderOffered")
+                        div(ng-repeat="resource in vm.resources", layout="row", flex="auto", layout-align="start center")
+                            md-input-container
+                                label(translate="common.resources.{{resource.id}}")
+                                input(type="number", required, min="0", ng-model="vm.traderOffer[resource.id]")
+                            div
+                                md-badge(translate="trade.points", translate-values="{points: resource.score}")
+
+                    .md-subhead
+                        b(translate="trade.totalPoints")
+                        = ': '
+                        | {{vm.traderTotalPoints()}}
+
+        .md-padding(ng-if="vm.survivor && vm.trader", layout="column", layout-align="center center")
+            md-button.md-raised.md-primary(translate="trade.finishTrade", ng-disabled="!vm.canMakeTrade()", ng-click="vm.makeTrade()")

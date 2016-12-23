@@ -13,6 +13,7 @@
             "survivor": {name: "pages.survivor", url: "/survivor"},
             "map": {name: "pages.map", url: "/map"},
             "statistic": {name: "pages.statistic", url: "/statistic"},
+            "trade": {name: "pages.trade", url: "/trade"}
         };
 
         var breadcrumbs = {
@@ -43,6 +44,10 @@
             "/statistic": [
                 pages.index,
                 pages.statistic
+            ],
+            "/trade": [
+                pages.index,
+                pages.trade
             ]
         };
         

@@ -9,6 +9,7 @@
                 newSurvivor: "Sou novo aqui",
                 updateSurvivor: "Quero atualizar meus dados",
                 findSomeone: "Quero procurar alguém",
+                trade: "Quero realizar uma troca",
                 statistic: "Quero ver as últimas estatísticas",
                 map: "Quero ver o mapa de sobreviventes"
             },
@@ -19,7 +20,8 @@
                 searchSurvivor: "Buscar por Sobrevivente",
                 survivor: "Perfil do Sobrevivente",
                 map: "Mapa de Sobreviventes",
-                statistic: "Estatísticas"
+                statistic: "Estatísticas",
+                trade: "Troca entre sobreviventes"
             },
             common: {
                 male: "Masculino",
@@ -102,6 +104,16 @@
                 nonInfected: "Sobreviventes não infectados",
                 totalPoints: "Total de pontos",
                 lostPoints: "Pontos perdidos por infecção"
+            },
+            trade: {
+                survivorId: "Sua chave",
+                traderId: "Chave no negociador",
+                yourOffer: "Sua oferta",
+                traderOffer: "Oferta do negociador",
+                finishTrade: "Finalizar troca",
+                points: "{{points}} pontos",
+                totalPoints: "Total de pontos",
+                success: "Troca realizada com sucesso!"
             }
         });
 })();

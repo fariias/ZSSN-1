@@ -12,4 +12,5 @@ md-dialog(layout-padding)
             md-list-item.md-2-line(ng-repeat="(resource, value) in dialog.survivor.inventory")
                 .md-list-item-text(translate="common.resources.{{resource}}")
                 md-badge.md-secondary {{value}}
+
     md-button(translate="map.seeProfile", ng-href="/survivor?id={{dialog.survivor._id}}", ng-click="dialog.close()")
