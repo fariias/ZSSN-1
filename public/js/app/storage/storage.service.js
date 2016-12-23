@@ -33,7 +33,7 @@
         }
 
         function initStorage(){
-            if (!getDefaultStorageType().initiated){
+            if (!getDefaultStorageType().initiated || !getDefaultStorageType().languageStorage){
                 getDefaultStorageType().initiated = true;
                 getDefaultStorageType().languageStorage = {};
             }
