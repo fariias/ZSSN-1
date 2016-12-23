@@ -96,7 +96,7 @@
         }
 
         function isInventoryEmpty(){
-            for (let resource in vm.resources){
+            for (var resource in vm.resources){
                 if (vm.resources[resource]){
                     return false;
                 }
