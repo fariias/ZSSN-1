@@ -27,7 +27,7 @@ gulp.task('build-openshift', () => {
 
 gulp.task('server-default', () => {
     return gulp.src('./server.js')
-        .pipe(gulp.dest('dist'));
+        .pipe(gulp.dest('build'));
 });
 
 gulp.task('server-production', () => {
@@ -35,7 +35,7 @@ gulp.task('server-production', () => {
         .pipe(change(function(content) {
             return content.replace('development', 'production');
         }))
-        .pipe(gulp.dest('dist'));
+        .pipe(gulp.dest('build'));
 });
 
 gulp.task('copy', ['clean'], () => {
@@ -69,7 +69,7 @@ gulp.task('copy', ['clean'], () => {
             '!public/js/app/**/*',
             '!server/views/scripts.pug'
         ], {dot: true})
-        .pipe(gulp.dest('dist'));
+        .pipe(gulp.dest('build'));
 });
 
 gulp.task('copy-openshift', () => {
@@ -77,10 +77,10 @@ gulp.task('copy-openshift', () => {
             // Includes
             '.openshift/**/*'
         ], {dot: true})
-        .pipe(gulp.dest('dist/.openshift'));
+        .pipe(gulp.dest('build/.openshift'));
 });
 gulp.task('clean', () => {
-    return gulp.src('dist')
+    return gulp.src('build')
         .pipe(clean());
 });
 
@@ -91,7 +91,7 @@ gulp.task('stylus', () => {
         .pipe(stylus())
         .pipe(cleanCSS({compatibility: 'ie8'}))
         .pipe(rename({suffix: '.min', basename: 'zssn'}))
-        .pipe(gulp.dest('./dist/public/css/'));
+        .pipe(gulp.dest('./build/public/css/'));
 
 });
 
@@ -99,7 +99,7 @@ gulp.task('js', function () {
     return gulp.src('./public/js/app/**/*.js')
         .pipe(uglify())
         .pipe(concat('zssn.min.js'))
-        .pipe(gulp.dest('./dist/public/js/app'));
+        .pipe(gulp.dest('./build/public/js/app'));
 });
 
 gulp.task('js-ref', function () {
@@ -110,7 +110,7 @@ gulp.task('js-ref', function () {
                 tpl: 'script(type="text/javascript", src="%s")'
             }
         }))
-        .pipe(gulp.dest('./dist/server/views/'));
+        .pipe(gulp.dest('./build/server/views/'));
 });
 
 /* Gulp development tasks */
