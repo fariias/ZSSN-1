@@ -2,10 +2,10 @@
     angular
         .module('zssn')
         .factory('language', Service);
-    Service.$inject = ['$translate', 'storage'];
-    function Service($translate, storage) {
+    Service.$inject = ['$translate'];
+    function Service($translate) {
 
-        const defaultLanguage = storage.getDefaultStorage().languageStorage.activeLanguage ||"ptbr";
+        const defaultLanguage = "ptbr";
         const languages = {
             'ptbr': {
                 name: "Português",
@@ -19,7 +19,6 @@
             }
         };
 
-        storage.getDefaultStorage().languageStorage.activeLanguage = defaultLanguage;
         $translate.use(defaultLanguage);
 
         return {
@@ -42,7 +41,6 @@
         }
 
         function setLanguage(lang){
-            storage.getDefaultStorage().languageStorage.activeLanguage = lang;
             $translate.use(lang);
         }
     }
