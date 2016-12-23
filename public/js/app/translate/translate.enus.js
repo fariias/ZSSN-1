@@ -37,11 +37,16 @@
                 refresh: "Refresh",
                 resetModifications: "Reset Modifications",
                 errors: {
-                    required: "This field is required",
-                    age: "Inform your age properly using only numbers",
-                    count: "Inform the count properly",
+                    required: "This field is required.",
+                    age: "Inform your age properly using only numbers.",
+                    count: "Inform the count properly.",
                     databaseConnection: "The connection with the server failed, try again.",
-                    personNotFound: "No one was found with that ID key."
+                    personNotFound: "No one was found with that ID key.",
+                    wrongInventory: "The data of your trade was not valid, try again.",
+                    unbalancedTrade: "A trade can only be made if it is balanced in points.",
+                    infectedSurvivor: "You cannot do this with an infected survivor.",
+                    infectedTrader: "You cannot do this with an infected trader.",
+                    notPossibleTrade: "You cannot send more items than you own in a rade."
                 },
                 resources: {
                     water: "Water",

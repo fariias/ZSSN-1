@@ -37,11 +37,16 @@
                 refresh: "Atualizar",
                 resetModifications: "Voltar modificações",
                 errors: {
-                    required: "É preciso preencher este campo",
-                    age: "Informe sua idade em números corretamente",
-                    count: "Informe corretamente a quantidade",
+                    required: "É preciso preencher este campo.",
+                    age: "Informe sua idade em números corretamente.",
+                    count: "Informe corretamente a quantidade.",
                     databaseConnection: "Não foi possível se conectar ao servidor, tente novamente.",
-                    personNotFound: "Não foi possível encontrar ninguém com esta chave"
+                    personNotFound: "Não foi possível encontrar ninguém com esta chave.",
+                    wrongInventory: "Ocorreu um erro no envio dos dados da troca. Tente novamente.",
+                    unbalancedTrade: "Uma troca só pode ser feita se for equivalente em pontos.",
+                    infectedSurvivor: "Não é possível realizar esta ação com um sobrevivente infectado.",
+                    infectedTrader: "Não é possível realizar esta ação com um sobrevivente infectado.",
+                    notPossibleTrade: "Não é possível enviar na troca mais itens do que você tem."
                 },
                 resources: {
                     water: "Água",
