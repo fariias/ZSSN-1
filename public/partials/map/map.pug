@@ -23,3 +23,6 @@ div(ng-if="vm.survivors", layout="column", layout-gt-sm="row", layout-align-gt-s
                 icon="{url:'images/red-marker.png', scaledSize:[25,40]}",
                 data="{{survivor}}",
                 on-click="vm.showSurvivor()")
+
+        .md-padding(layout="column", layout-align="center center")
+            md-button.md-raised.md-primary(translate="common.refresh", ng-click="vm.loadSurvivors()")

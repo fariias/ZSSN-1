@@ -7,6 +7,7 @@
         var vm = this;
 
         vm.showSurvivor = showSurvivor;
+        vm.loadSurvivors = loadSurvivors;
 
         vm.filters = {
             infected: false,

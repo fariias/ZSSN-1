@@ -34,6 +34,7 @@
                 update: "Atualizar",
                 yes: "Sim",
                 no: "Não",
+                refresh: "Atualizar",
                 resetModifications: "Voltar modificações",
                 errors: {
                     required: "É preciso preencher este campo",
@@ -92,7 +93,7 @@
             },
             map: {
                 filter: "Filtro",
-                showNonInfected: "Mostrar sobreviventes não infectados",
+                showNonInfected: "Mostrar sobreviventes saudáveis",
                 showInfected: "Mostrar sobreviventes infectados",
                 seeProfile: "Ver perfil"
             },
