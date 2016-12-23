@@ -68,7 +68,7 @@
             updateSurvivor: {
                 id: "Chave de identificação",
                 success: "Dados atualizados com sucesso!",
-                infected: "Este usuário foi marcado como infectado. Não é possível realizar alterações."
+                infected: "Este sobrevivente foi marcado como infectado. Não é possível realizar alterações."
             },
             searchSurvivor: {
                 name: "Nome do sobrevivente",
